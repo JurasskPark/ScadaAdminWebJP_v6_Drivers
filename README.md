@@ -1,11 +1,3 @@
-# Current contract summary
-
-AdminActionProvider is the current extension point for interactive C# actions used by driver descriptors, component manifests and Web Administrator features. The browser sends componentCode, scope, actionId, context paths and typed input. Web Admin resolves the provider assembly and entry point, invokes a public method named by actionId, and expects AdminActionResult or Task<AdminActionResult>.
-
-For Communicator drivers, descriptors are the primary source for forms and action metadata. Runtime DLLs should be resolved from Drivers\\<DriverCode> via actionProvider.assemblyFile; fallback to old training/source paths is compatibility only. Driver-specific CSS and JS belong in descriptor assets.styles and assets.scripts.
-
-Use this document for the stable contract. Use ADMIN_ACTION_PROVIDER_AUDIT.md only as historical research background.
-
 # AdminActionProvider guide
 
 Дата: 2026-06-17
