@@ -1,0 +1,28 @@
+{
+  "enabled": true,
+  "code": "DrvModbus",
+  "name": "Modbus",
+  "owner": "upstream",
+  "origin": "OtherVendors",
+  "sourcePath": "Drivers/OtherVendors/DrvModbus/DrvModbus.View",
+  "buildMode": "build-list",
+  "runtime": {
+    "source": "Drivers/OtherVendors/DrvModbus/DrvModbus.View/bin/{Configuration}/net8.0-windows",
+    "target": "Drivers/DrvModbus"
+  },
+  "webDescriptor": {
+    "source": "Drivers/OtherVendors/DrvModbus/DrvModbus.View/AdminWeb/DriverDescriptor.json",
+    "target": "DriverDescriptors/DrvModbus.json"
+  },
+  "assets": [
+    {
+      "source": "ScadaAdminWebJP/wwwroot/drivers/DrvModbus",
+      "target": "wwwroot/drivers/DrvModbus"
+    }
+  ],
+  "extraFiles": [],
+  "releasePackages": [],
+  "notes": [
+    "Active Web Admin runtime source. Uses the flattened OtherVendors driver source layout."
+  ]
+}

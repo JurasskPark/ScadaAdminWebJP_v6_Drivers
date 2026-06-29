@@ -1,0 +1,396 @@
+{
+  "driverCode": "DrvModbus",
+  "driverName": "Modbus",
+  "version": "1.0.1",
+  "description": "TreeView version of the Modbus device template descriptor.",
+  "configFile": "DriverConfigs/DrvModbus.xml",
+  "omitRootCodeAttribute": true,
+  "assets": {
+    "styles": [
+      "/drivers/DrvModbus/driver.css"
+    ]
+  },
+  "actionProvider": {
+    "assemblyFile": "$(AppDir)/Drivers/DrvModbus/DrvModbus.View.dll",
+    "entryPoint": "Scada.Comm.Drivers.DrvModbus.View.AdminActionProvider"
+  },
+  "actions": [
+    {
+      "actionId": "GetTags",
+      "name": "Получить теги",
+      "description": "Формирует список тегов по командам чтения и их регистрам.",
+      "placement": "categoryToolbar",
+      "categoryId": "readCommands",
+      "input": {
+        "readCommands": "listValues.readCommands",
+        "readCommandRegisters": "nestedGridValues.readCommands"
+      },
+      "result": {
+        "type": "table",
+        "target": "values.readCommands.tags"
+      }
+    },
+    {
+      "actionId": "GetSampleRegisters",
+      "name": "Добавить пример регистров",
+      "description": "Добавляет пример строк во вложенную таблицу регистров выбранной команды чтения.",
+      "placement": "categoryToolbar",
+      "categoryId": "readCommands",
+      "result": {
+        "type": "list",
+        "target": "nestedGridValues.readCommands.selected.registers",
+        "applyMode": "append"
+      }
+    },
+    {
+      "actionId": "PreviewSelectedReadCommand",
+      "name": "Проверить выбранную команду",
+      "description": "Показывает команду чтения и регистры, выбранные в TreeView.",
+      "placement": "categoryToolbar",
+      "categoryId": "readCommands",
+      "input": {
+        "readCommand": "listValues.readCommands.selected",
+        "readCommandRegisters": "nestedGridValues.readCommands.selected"
+      },
+      "result": {
+        "type": "table",
+        "target": "values.readCommands.selectedPreview"
+      }
+    },
+    {
+      "actionId": "GetCommands",
+      "name": "Получить команды",
+      "description": "Формирует список команд по текущей таблице команд.",
+      "placement": "categoryToolbar",
+      "categoryId": "commands",
+      "input": {
+        "commands": "listValues.commands"
+      },
+      "result": {
+        "type": "table",
+        "target": "values.commands.commands"
+      }
+    }
+  ],
+  "categories": [
+    {
+      "id": "options",
+      "name": "Параметры",
+      "isSingleton": true,
+      "columns": 2,
+      "xmlPath": "/DeviceTemplate/Options",
+      "fields": [
+        {
+          "id": "zeroAddr",
+          "name": "Адреса с нуля",
+          "type": "boolean",
+          "order": 10,
+          "xmlPath": "ZeroAddr",
+          "default": false
+        },
+        {
+          "id": "decAddr",
+          "name": "Десятичные адреса",
+          "type": "boolean",
+          "order": 20,
+          "xmlPath": "DecAddr",
+          "default": true
+        },
+        {
+          "id": "defByteOrder2",
+          "name": "Порядок байт 2",
+          "type": "string",
+          "order": 30,
+          "xmlPath": "DefByteOrder2",
+          "default": ""
+        },
+        {
+          "id": "defByteOrder4",
+          "name": "Порядок байт 4",
+          "type": "string",
+          "order": 40,
+          "xmlPath": "DefByteOrder4",
+          "default": ""
+        },
+        {
+          "id": "defByteOrder8",
+          "name": "Порядок байт 8",
+          "type": "string",
+          "order": 50,
+          "xmlPath": "DefByteOrder8",
+          "default": ""
+        }
+      ]
+    },
+    {
+      "id": "readCommands",
+      "name": "Команды чтения",
+      "isList": true,
+      "viewMode": "tree",
+      "itemName": "Команда чтения",
+      "xmlPath": "/DeviceTemplate/ElemGroups/ElemGroup",
+      "fields": [
+        {
+          "id": "active",
+          "name": "Активна",
+          "type": "boolean",
+          "order": 10,
+          "xmlPath": "@active",
+          "default": true
+        },
+        {
+          "id": "name",
+          "name": "Название",
+          "type": "string",
+          "required": true,
+          "order": 20,
+          "xmlPath": "@name",
+          "default": "Read command"
+        },
+        {
+          "id": "dataBlock",
+          "name": "Блок данных",
+          "type": "select",
+          "required": true,
+          "order": 30,
+          "xmlPath": "@dataBlock",
+          "default": "HoldingRegisters",
+          "options": [
+            { "value": "DiscreteInputs", "label": "Discrete Inputs" },
+            { "value": "Coils", "label": "Coils" },
+            { "value": "InputRegisters", "label": "Input Registers" },
+            { "value": "HoldingRegisters", "label": "Holding Registers" },
+            { "value": "Custom", "label": "Custom" }
+          ]
+        },
+        {
+          "id": "address",
+          "name": "Начальный адрес",
+          "type": "integer",
+          "required": true,
+          "min": 0,
+          "max": 65535,
+          "order": 40,
+          "xmlPath": "@address",
+          "default": 0
+        },
+        {
+          "id": "registers",
+          "name": "Регистры",
+          "type": "grid",
+          "order": 50,
+          "xmlPath": "Elem",
+          "itemName": "Регистр",
+          "fields": [
+            {
+              "id": "tagCode",
+              "name": "Код тега",
+              "type": "string",
+              "order": 10,
+              "xmlPath": "@tagCode",
+              "default": ""
+            },
+            {
+              "id": "name",
+              "name": "Название",
+              "type": "string",
+              "required": true,
+              "order": 20,
+              "xmlPath": "@name",
+              "default": "Register"
+            },
+            {
+              "id": "elementType",
+              "name": "Тип",
+              "type": "select",
+              "required": true,
+              "order": 30,
+              "xmlPath": "@type",
+              "default": "ushort",
+              "options": [
+                { "value": "bool", "label": "Bool" },
+                { "value": "short", "label": "Int16" },
+                { "value": "ushort", "label": "UInt16" },
+                { "value": "int", "label": "Int32" },
+                { "value": "uint", "label": "UInt32" },
+                { "value": "float", "label": "Float" },
+                { "value": "double", "label": "Double" }
+              ]
+            },
+            {
+              "id": "byteOrder",
+              "name": "Порядок байт",
+              "type": "string",
+              "order": 40,
+              "xmlPath": "@byteOrder",
+              "default": "",
+              "omitIfEmpty": true
+            },
+            {
+              "id": "readOnly",
+              "name": "Только чтение",
+              "type": "boolean",
+              "order": 50,
+              "xmlPath": "@readOnly",
+              "default": false
+            },
+            {
+              "id": "isBitMask",
+              "name": "Битовая маска",
+              "type": "boolean",
+              "order": 60,
+              "xmlPath": "@isBitMask",
+              "default": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "commands",
+      "name": "Команды записи",
+      "isList": true,
+      "itemName": "Команда",
+      "xmlPath": "/DeviceTemplate/Cmds/Cmd",
+      "fields": [
+        {
+          "id": "commandCode",
+          "name": "Код команды",
+          "type": "string",
+          "order": 10,
+          "xmlPath": "@cmdCode",
+          "default": "CMD_1"
+        },
+        {
+          "id": "commandNumber",
+          "name": "Номер команды",
+          "type": "integer",
+          "min": 0,
+          "max": 65535,
+          "order": 20,
+          "xmlPath": "@cmdNum",
+          "default": 1
+        },
+        {
+          "id": "name",
+          "name": "Название",
+          "type": "string",
+          "required": true,
+          "order": 30,
+          "xmlPath": "@name",
+          "default": "CMD_1"
+        },
+        {
+          "id": "dataBlock",
+          "name": "Блок данных",
+          "type": "select",
+          "required": true,
+          "order": 40,
+          "xmlPath": "@dataBlock",
+          "default": "Coils",
+          "options": [
+            { "value": "Coils", "label": "Coils" },
+            { "value": "HoldingRegisters", "label": "Holding Registers" },
+            { "value": "Custom", "label": "Custom" }
+          ]
+        },
+        {
+          "id": "address",
+          "name": "Адрес",
+          "type": "integer",
+          "min": 0,
+          "max": 65535,
+          "order": 50,
+          "xmlPath": "@address",
+          "default": 0,
+          "dependsOn": {
+            "fieldId": "dataBlock",
+            "operator": "notEquals",
+            "value": "Custom"
+          }
+        },
+        {
+          "id": "multiple",
+          "name": "Несколько элементов",
+          "type": "boolean",
+          "order": 60,
+          "xmlPath": "@multiple",
+          "default": false,
+          "dependsOn": {
+            "fieldId": "dataBlock",
+            "operator": "notEquals",
+            "value": "Custom"
+          }
+        },
+        {
+          "id": "elementType",
+          "name": "Тип элемента",
+          "type": "select",
+          "order": 70,
+          "xmlPath": "@elemType",
+          "default": "bool",
+          "omitIfDefault": true,
+          "dependsOn": {
+            "fieldId": "multiple",
+            "operator": "equals",
+            "value": "true"
+          },
+          "options": [
+            { "value": "bool", "label": "Boolean" },
+            { "value": "short", "label": "Int16" },
+            { "value": "ushort", "label": "UInt16" },
+            { "value": "int", "label": "Int32" },
+            { "value": "uint", "label": "UInt32" },
+            { "value": "float", "label": "Float32" },
+            { "value": "double", "label": "Double" }
+          ]
+        },
+        {
+          "id": "elementCount",
+          "name": "Количество элементов",
+          "type": "integer",
+          "min": 1,
+          "max": 125,
+          "order": 80,
+          "xmlPath": "@elemCnt",
+          "default": 1,
+          "omitIfDefault": true,
+          "dependsOn": {
+            "fieldId": "multiple",
+            "operator": "equals",
+            "value": "true"
+          }
+        },
+        {
+          "id": "byteOrder",
+          "name": "Порядок байт",
+          "type": "string",
+          "order": 90,
+          "xmlPath": "@byteOrder",
+          "default": "",
+          "omitIfEmpty": true,
+          "dependsOn": {
+            "fieldId": "multiple",
+            "operator": "equals",
+            "value": "true"
+          }
+        },
+        {
+          "id": "functionCode",
+          "name": "Код функции",
+          "type": "integer",
+          "min": 0,
+          "max": 255,
+          "order": 100,
+          "xmlPath": "@funcCode",
+          "default": 0,
+          "dependsOn": {
+            "fieldId": "dataBlock",
+            "operator": "equals",
+            "value": "Custom"
+          }
+        }
+      ]
+    }
+  ]
+}
