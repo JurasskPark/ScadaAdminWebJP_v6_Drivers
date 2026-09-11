@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DriverDescriptorDictionaries>
+  <Dictionary key="DrvCsvReader.AdminWeb">
+    <Phrase key="DrvCsvReaderDriverName">CSV Reader</Phrase>
+    <Phrase key="DrvCsvReaderDescription">Web editor descriptor for CSV reader device custom options.</Phrase>
+    <Phrase key="DrvCsvReaderCategoriesOptionsName">Options</Phrase>
+    <Phrase key="DrvCsvReaderCategoriesOptionsFieldsTagCountName">Tag count</Phrase>
+    <Phrase key="DrvCsvReaderCategoriesOptionsFieldsFileNameName">CSV file</Phrase>
+    <Phrase key="DrvCsvReaderCategoriesOptionsFieldsDecimalSeparatorName">Decimal separator</Phrase>
+    <Phrase key="DrvCsvReaderCategoriesOptionsFieldsFieldDelimiterName">Field separator</Phrase>
+    <Phrase key="DrvCsvReaderCategoriesOptionsFieldsReadModeName">Read mode</Phrase>
+    <Phrase key="DrvCsvReaderCategoriesOptionsFieldsReadModeOptionsRealTimeLabel">RealTime</Phrase>
+    <Phrase key="DrvCsvReaderCategoriesOptionsFieldsReadModeOptionsDemoLabel">Demo</Phrase>
+    <Phrase key="DrvCsvReaderCategoriesOptionsFieldsDemoPeriodName">Demo period</Phrase>
+    <Phrase key="DrvCsvReaderCategoriesOptionsFieldsDemoPeriodOptionsOneHourLabel">OneHour</Phrase>
+    <Phrase key="DrvCsvReaderCategoriesOptionsFieldsDemoPeriodOptionsOneDayLabel">OneDay</Phrase>
+    <Phrase key="DrvCsvReaderCategoriesOptionsFieldsDemoPeriodOptionsOneMonthLabel">OneMonth</Phrase>
+    <Phrase key="DrvCsvReaderActionsGetTagsName">Get tags</Phrase>
+    <Phrase key="DrvCsvReaderActionsGetTagsDescription">Builds the CSV channel list from the tag count.</Phrase>
+  </Dictionary>
+</DriverDescriptorDictionaries>

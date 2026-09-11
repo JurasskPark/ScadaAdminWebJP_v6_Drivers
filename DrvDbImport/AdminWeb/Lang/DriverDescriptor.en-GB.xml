@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DriverDescriptorDictionaries>
+  <Dictionary key="DrvDbImport.AdminWeb">
+    <Phrase key="DrvDbImportDriverName">DB Import</Phrase>
+    <Phrase key="DrvDbImportDescription">Example descriptor for database import device configuration.</Phrase>
+    <Phrase key="DrvDbImportCategoriesConnectionName">Connection</Phrase>
+    <Phrase key="DrvDbImportCategoriesConnectionFieldsNameName">Name</Phrase>
+    <Phrase key="DrvDbImportCategoriesConnectionFieldsDbmsName">DBMS</Phrase>
+    <Phrase key="DrvDbImportCategoriesConnectionFieldsDbmsOptionsMSSQLLabel">MS SQL</Phrase>
+    <Phrase key="DrvDbImportCategoriesConnectionFieldsDbmsOptionsMySQLLabel">MySQL</Phrase>
+    <Phrase key="DrvDbImportCategoriesConnectionFieldsDbmsOptionsOracleLabel">Oracle</Phrase>
+    <Phrase key="DrvDbImportCategoriesConnectionFieldsDbmsOptionsPostgreSQLLabel">PostgreSQL</Phrase>
+    <Phrase key="DrvDbImportCategoriesConnectionFieldsServerName">Server</Phrase>
+    <Phrase key="DrvDbImportCategoriesConnectionFieldsDatabaseName">Database</Phrase>
+    <Phrase key="DrvDbImportCategoriesConnectionFieldsUsernameName">User</Phrase>
+    <Phrase key="DrvDbImportCategoriesConnectionFieldsPasswordName">Password</Phrase>
+    <Phrase key="DrvDbImportCategoriesConnectionFieldsConnectionStringName">Connection string</Phrase>
+    <Phrase key="DrvDbImportCategoriesQueriesName">Queries</Phrase>
+    <Phrase key="DrvDbImportCategoriesQueriesItemName">Query</Phrase>
+    <Phrase key="DrvDbImportCategoriesQueriesFieldsActiveName">Active</Phrase>
+    <Phrase key="DrvDbImportCategoriesQueriesFieldsNameName">Name</Phrase>
+    <Phrase key="DrvDbImportCategoriesQueriesFieldsTagCodesName">Tags</Phrase>
+    <Phrase key="DrvDbImportCategoriesQueriesFieldsSingleRowName">Single line</Phrase>
+    <Phrase key="DrvDbImportCategoriesQueriesFieldsSqlName">SQL</Phrase>
+    <Phrase key="DrvDbImportCategoriesCommandsName">Commands</Phrase>
+    <Phrase key="DrvDbImportCategoriesCommandsItemName">Command</Phrase>
+    <Phrase key="DrvDbImportCategoriesCommandsFieldsNameName">Name</Phrase>
+    <Phrase key="DrvDbImportCategoriesCommandsFieldsCmdCodeName">Command code</Phrase>
+    <Phrase key="DrvDbImportCategoriesCommandsFieldsSqlName">SQL</Phrase>
+    <Phrase key="DrvDbImportActionsTestConnectionName">Test connection</Phrase>
+    <Phrase key="DrvDbImportActionsTestConnectionDescription">Tests the database connection using the line settings.</Phrase>
+    <Phrase key="DrvDbImportActionsDBQueryName">Database query</Phrase>
+    <Phrase key="DrvDbImportActionsDBQueryDescription">Executes the first active SQL query and returns a result preview.</Phrase>
+  </Dictionary>
+</DriverDescriptorDictionaries>

@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 2,
+  "code": "DrvOpcUa",
+  "name": "OPC UA",
+  "roles": [
+    "device"
+  ],
+  "owner": "web-adapted",
+  "origin": "upstream",
+  "packageKind": "compiled",
+  "admin": {
+    "descriptor": "AdminWeb/DriverDescriptor.json",
+    "options": null
+  },
+  "runtime": {
+    "entryAssembly": "DrvOpcUa.View.dll",
+    "dependencies": []
+  },
+  "build": {
+    "project": "Drivers/DrvOpcUa/DrvOpcUa.View/DrvOpcUa.View.csproj",
+    "output": "Drivers/DrvOpcUa/DrvOpcUa.View/bin/{Configuration}/net10.0-windows",
+    "extraFiles": [],
+    "releasePackages": []
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 2,
+  "code": "DrvDbImport",
+  "name": "DB Import",
+  "roles": [
+    "device"
+  ],
+  "owner": "web-adapted",
+  "origin": "upstream",
+  "packageKind": "compiled",
+  "admin": {
+    "descriptor": "AdminWeb/DriverDescriptor.json",
+    "options": null
+  },
+  "runtime": {
+    "entryAssembly": "DrvDbImport.View.dll",
+    "dependencies": []
+  },
+  "build": {
+    "project": "Drivers/DrvDbImport/DrvDbImport.View/DrvDbImport.View.csproj",
+    "output": "Drivers/DrvDbImport/DrvDbImport.View/bin/{Configuration}/net10.0-windows",
+    "extraFiles": [],
+    "releasePackages": []
+  }
+}

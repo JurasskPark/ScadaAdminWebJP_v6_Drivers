@@ -1,0 +1,319 @@
+{
+  "driverCode": "DrvOpcUa",
+  "driverName": "OPC UA",
+  "version": "0.1.0",
+  "description": "Prototype descriptor for OPC UA web actions.",
+  "configFile": "DriverConfigs/DrvOpcUa_line001.xml",
+  "actionProvider": {
+    "assemblyFile": "$(AppDir)/Drivers/DrvOpcUa/runtime/DrvOpcUa.View.dll",
+    "entryPoint": "Scada.Comm.Drivers.DrvOpcUa.View.AdminActionProvider"
+  },
+  "actions": [
+    {
+      "actionId": "TestConnection",
+      "name": "Test connection",
+      "description": "Connects to the OPC UA server using the current settings.",
+      "placement": "categoryToolbar",
+      "categoryId": "connection",
+      "input": {
+        "serverUrl": "values.connection.serverUrl",
+        "username": "values.connection.username",
+        "password": "values.connection.password",
+        "securityMode": "values.connection.securityMode",
+        "securityPolicy": "values.connection.securityPolicy",
+        "autoAccept": "values.connection.autoAccept"
+      },
+      "result": {
+        "type": "message"
+      },
+      "nameKey": "DrvOpcUaActionsTestConnectionName",
+      "descriptionKey": "DrvOpcUaActionsTestConnectionDescription"
+    },
+    {
+      "actionId": "BrowseTags",
+      "name": "Browse tags",
+      "description": "Retrieves the OPC UA server node tree.",
+      "placement": "categoryToolbar",
+      "categoryId": "browser",
+      "input": {
+        "serverUrl": "values.connection.serverUrl",
+        "username": "values.connection.username",
+        "password": "values.connection.password",
+        "securityMode": "values.connection.securityMode",
+        "securityPolicy": "values.connection.securityPolicy",
+        "autoAccept": "values.connection.autoAccept",
+        "nodeId": "values.browser.nodeId"
+      },
+      "result": {
+        "type": "tree",
+        "target": "values.browser.nodes",
+        "applyMode": "replace"
+      },
+      "nameKey": "DrvOpcUaActionsBrowseTagsName",
+      "descriptionKey": "DrvOpcUaActionsBrowseTagsDescription"
+    },
+    {
+      "actionId": "SetTags",
+      "name": "Add to subscription",
+      "description": "Adds the selected OPC UA node to the device's first subscription.",
+      "placement": "categoryToolbar",
+      "categoryId": "subscriptions",
+      "input": {
+        "serverUrl": "values.connection.serverUrl",
+        "username": "values.connection.username",
+        "password": "values.connection.password",
+        "securityMode": "values.connection.securityMode",
+        "securityPolicy": "values.connection.securityPolicy",
+        "autoAccept": "values.connection.autoAccept",
+        "nodeId": "values.browser.nodeId",
+        "subscriptions": "listValues.subscriptions",
+        "subscriptionItems": "nestedGridValues.subscriptions"
+      },
+      "result": {
+        "type": "formPatch"
+      },
+      "nameKey": "DrvOpcUaActionsSetTagsName",
+      "descriptionKey": "DrvOpcUaActionsSetTagsDescription"
+    }
+  ],
+  "categories": [
+    {
+      "id": "connection",
+      "name": "Connection",
+      "isSingleton": true,
+      "xmlPath": "/OpcLineConfig/ConnectionOptions",
+      "fields": [
+        {
+          "id": "serverUrl",
+          "name": "Server URL",
+          "type": "string",
+          "required": true,
+          "order": 10,
+          "xmlPath": "ServerUrl",
+          "default": "opc.tcp://opcua.demo-this.com:51210/UA/SampleServer",
+          "nameKey": "DrvOpcUaCategoriesConnectionFieldsServerUrlName"
+        },
+        {
+          "id": "securityMode",
+          "name": "Security mode",
+          "type": "select",
+          "required": true,
+          "order": 20,
+          "xmlPath": "SecurityMode",
+          "default": "None",
+          "options": [
+            {
+              "value": "None",
+              "label": "None",
+              "labelKey": "DrvOpcUaCategoriesConnectionFieldsSecurityModeOptionsNoneLabel"
+            },
+            {
+              "value": "Sign",
+              "label": "Sign",
+              "labelKey": "DrvOpcUaCategoriesConnectionFieldsSecurityModeOptionsSignLabel"
+            },
+            {
+              "value": "SignAndEncrypt",
+              "label": "SignAndEncrypt",
+              "labelKey": "DrvOpcUaCategoriesConnectionFieldsSecurityModeOptionsSignAndEncryptLabel"
+            }
+          ],
+          "nameKey": "DrvOpcUaCategoriesConnectionFieldsSecurityModeName"
+        },
+        {
+          "id": "securityPolicy",
+          "name": "Security policy",
+          "type": "select",
+          "required": true,
+          "order": 30,
+          "xmlPath": "SecurityPolicy",
+          "default": "None",
+          "options": [
+            {
+              "value": "None",
+              "label": "None",
+              "labelKey": "DrvOpcUaCategoriesConnectionFieldsSecurityPolicyOptionsNoneLabel"
+            },
+            {
+              "value": "Basic256Sha256",
+              "label": "Basic256Sha256",
+              "labelKey": "DrvOpcUaCategoriesConnectionFieldsSecurityPolicyOptionsBasic256Sha256Label"
+            },
+            {
+              "value": "Aes128_Sha256_RsaOaep",
+              "label": "Aes128-Sha256-RsaOaep",
+              "labelKey": "DrvOpcUaCategoriesConnectionFieldsSecurityPolicyOptionsAes128_Sha256_RsaOaepLabel"
+            },
+            {
+              "value": "Aes256_Sha256_RsaPss",
+              "label": "Aes256-Sha256-RsaPss",
+              "labelKey": "DrvOpcUaCategoriesConnectionFieldsSecurityPolicyOptionsAes256_Sha256_RsaPssLabel"
+            }
+          ],
+          "nameKey": "DrvOpcUaCategoriesConnectionFieldsSecurityPolicyName"
+        },
+        {
+          "id": "username",
+          "name": "User",
+          "type": "string",
+          "order": 40,
+          "xmlPath": "Username",
+          "default": "",
+          "nameKey": "DrvOpcUaCategoriesConnectionFieldsUsernameName"
+        },
+        {
+          "id": "password",
+          "name": "Password",
+          "type": "password",
+          "order": 50,
+          "xmlPath": "Password",
+          "default": "",
+          "nameKey": "DrvOpcUaCategoriesConnectionFieldsPasswordName"
+        },
+        {
+          "id": "autoAccept",
+          "name": "Automatically accept certificate",
+          "type": "boolean",
+          "order": 60,
+          "xmlPath": "AutoAccept",
+          "default": true,
+          "nameKey": "DrvOpcUaCategoriesConnectionFieldsAutoAcceptName"
+        }
+      ],
+      "nameKey": "DrvOpcUaCategoriesConnectionName"
+    },
+    {
+      "id": "browser",
+      "name": "Browse server",
+      "isSingleton": true,
+      "xmlPath": "/OpcLineConfig/Browser",
+      "fields": [
+        {
+          "id": "nodeId",
+          "name": "Node ID",
+          "type": "string",
+          "order": 10,
+          "xmlPath": "NodeID",
+          "default": "",
+          "nameKey": "DrvOpcUaCategoriesBrowserFieldsNodeIdName"
+        }
+      ],
+      "nameKey": "DrvOpcUaCategoriesBrowserName"
+    },
+    {
+      "id": "subscriptions",
+      "name": "Subscriptions",
+      "isList": true,
+      "configFile": "DriverConfigs/DrvOpcUa_001.xml",
+      "xmlPath": "/OpcDeviceConfig/Subscriptions/Subscription",
+      "itemName": "Subscription",
+      "fields": [
+        {
+          "id": "active",
+          "name": "Active",
+          "type": "boolean",
+          "order": 10,
+          "xmlPath": "@active",
+          "default": true,
+          "nameKey": "DrvOpcUaCategoriesSubscriptionsFieldsActiveName"
+        },
+        {
+          "id": "displayName",
+          "name": "Name",
+          "type": "string",
+          "order": 20,
+          "xmlPath": "@displayName",
+          "default": "Subscription 1",
+          "nameKey": "DrvOpcUaCategoriesSubscriptionsFieldsDisplayNameName"
+        },
+        {
+          "id": "publishingInterval",
+          "name": "Publishing interval, ms",
+          "type": "integer",
+          "order": 30,
+          "xmlPath": "@publishingInterval",
+          "default": 1000,
+          "min": 1,
+          "nameKey": "DrvOpcUaCategoriesSubscriptionsFieldsPublishingIntervalName"
+        },
+        {
+          "id": "items",
+          "name": "Items",
+          "type": "grid",
+          "order": 40,
+          "xmlPath": "Item",
+          "itemName": "Item",
+          "fields": [
+            {
+              "id": "active",
+              "name": "Active",
+              "type": "boolean",
+              "order": 10,
+              "xmlPath": "@active",
+              "default": true,
+              "nameKey": "DrvOpcUaCategoriesSubscriptionsFieldsItemsFieldsActiveName"
+            },
+            {
+              "id": "nodeId",
+              "name": "Node ID",
+              "type": "string",
+              "required": true,
+              "order": 20,
+              "xmlPath": "@nodeID",
+              "nameKey": "DrvOpcUaCategoriesSubscriptionsFieldsItemsFieldsNodeIdName"
+            },
+            {
+              "id": "displayName",
+              "name": "Name",
+              "type": "string",
+              "order": 30,
+              "xmlPath": "@displayName",
+              "nameKey": "DrvOpcUaCategoriesSubscriptionsFieldsItemsFieldsDisplayNameName"
+            },
+            {
+              "id": "tagCode",
+              "name": "Tag code",
+              "type": "string",
+              "order": 40,
+              "xmlPath": "@tagCode",
+              "nameKey": "DrvOpcUaCategoriesSubscriptionsFieldsItemsFieldsTagCodeName"
+            },
+            {
+              "id": "dataType",
+              "name": "Data type",
+              "type": "string",
+              "order": 50,
+              "xmlPath": "@dataType",
+              "nameKey": "DrvOpcUaCategoriesSubscriptionsFieldsItemsFieldsDataTypeName"
+            },
+            {
+              "id": "isArray",
+              "name": "Array",
+              "type": "boolean",
+              "order": 60,
+              "xmlPath": "@isArray",
+              "default": false,
+              "nameKey": "DrvOpcUaCategoriesSubscriptionsFieldsItemsFieldsIsArrayName"
+            },
+            {
+              "id": "dataLen",
+              "name": "Length",
+              "type": "integer",
+              "order": 70,
+              "xmlPath": "@dataLen",
+              "default": 0,
+              "min": 0,
+              "nameKey": "DrvOpcUaCategoriesSubscriptionsFieldsItemsFieldsDataLenName"
+            }
+          ],
+          "nameKey": "DrvOpcUaCategoriesSubscriptionsFieldsItemsName",
+          "itemNameKey": "DrvOpcUaCategoriesSubscriptionsFieldsItemsItemName"
+        }
+      ],
+      "nameKey": "DrvOpcUaCategoriesSubscriptionsName",
+      "itemNameKey": "DrvOpcUaCategoriesSubscriptionsItemName"
+    }
+  ],
+  "driverNameKey": "DrvOpcUaDriverName",
+  "descriptionKey": "DrvOpcUaDescription"
+}

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DriverDescriptorDictionaries>
+  <Dictionary key="DrvSimulator.AdminWeb">
+    <Phrase key="DrvSimulatorDriverName">Device Simulator</Phrase>
+    <Phrase key="DrvSimulatorDescription">Web editor descriptor for simulator driver static channel prototypes.</Phrase>
+    <Phrase key="DrvSimulatorCategoriesChannelsName">Channels</Phrase>
+    <Phrase key="DrvSimulatorActionsGetTagsName">Get tags</Phrase>
+    <Phrase key="DrvSimulatorActionsGetTagsDescription">Shows the device simulator channels.</Phrase>
+  </Dictionary>
+</DriverDescriptorDictionaries>

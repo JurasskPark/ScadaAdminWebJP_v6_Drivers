@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DriverDescriptorDictionaries>
+  <Dictionary key="DrvTester.AdminWeb">
+    <Phrase key="DrvTesterDriverName">Tester</Phrase>
+    <Phrase key="DrvTesterDescription">Web editor descriptor for tester device custom options.</Phrase>
+    <Phrase key="DrvTesterCategoriesOptionsName">Options</Phrase>
+    <Phrase key="DrvTesterCategoriesOptionsFieldsReadModeName">Read mode</Phrase>
+    <Phrase key="DrvTesterCategoriesOptionsFieldsReadModeOptionsStringLabel">String</Phrase>
+    <Phrase key="DrvTesterCategoriesOptionsFieldsReadModeOptionsBinaryLabel">Binary</Phrase>
+    <Phrase key="DrvTesterCategoriesOptionsFieldsBufferLengthName">Buffer length</Phrase>
+    <Phrase key="DrvTesterCategoriesOptionsFieldsBinStopCodeName">Stop code</Phrase>
+    <Phrase key="DrvTesterCategoriesOptionsFieldsStopEndingName">Line ending</Phrase>
+    <Phrase key="DrvTesterActionsGetCommandsName">Get commands</Phrase>
+    <Phrase key="DrvTesterActionsGetCommandsDescription">Returns the communication line tester's built-in commands.</Phrase>
+  </Dictionary>
+</DriverDescriptorDictionaries>

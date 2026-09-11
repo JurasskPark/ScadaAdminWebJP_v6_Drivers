@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DriverDescriptorDictionaries>
+  <Dictionary key="DrvEmail.AdminWeb">
+    <Phrase key="DrvEmailDriverName">Email</Phrase>
+    <Phrase key="DrvEmailDescription">Настройка SMTP для устройства Email.</Phrase>
+    <Phrase key="DrvEmailCategoriesSmtpName">SMTP сервер</Phrase>
+    <Phrase key="DrvEmailCategoriesSmtpFieldsHostName">Сервер</Phrase>
+    <Phrase key="DrvEmailCategoriesSmtpFieldsPortName">Порт</Phrase>
+    <Phrase key="DrvEmailCategoriesSmtpFieldsUsernameName">Пользователь</Phrase>
+    <Phrase key="DrvEmailCategoriesSmtpFieldsPasswordName">Пароль</Phrase>
+    <Phrase key="DrvEmailCategoriesSmtpFieldsEnableSslName">Использовать SSL</Phrase>
+    <Phrase key="DrvEmailCategoriesSenderName">Отправитель</Phrase>
+    <Phrase key="DrvEmailCategoriesSenderFieldsSenderAddressName">Адрес отправителя</Phrase>
+    <Phrase key="DrvEmailCategoriesSenderFieldsSenderDisplayNameName">Отображаемое имя</Phrase>
+    <Phrase key="DrvEmailActionsGetTagsName">Показать теги</Phrase>
+    <Phrase key="DrvEmailActionsGetTagsDescription">Показывает прототипы каналов, которые создает драйвер Email.</Phrase>
+  </Dictionary>
+</DriverDescriptorDictionaries>

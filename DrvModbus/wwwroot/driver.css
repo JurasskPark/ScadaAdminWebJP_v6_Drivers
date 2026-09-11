@@ -1,0 +1,163 @@
+.driver-tree-list-editor {
+    grid-column: 1 / -1;
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    color: var(--text);
+    background: var(--bg-panel, #fff);
+}
+
+.driver-tree-list-layout {
+    display: grid;
+    grid-template-columns: minmax(220px, 260px) minmax(0, 1fr);
+    min-height: 440px;
+}
+
+.driver-tree-list-pane {
+    overflow: auto;
+    border-right: 1px solid var(--line);
+    background: var(--bg-soft, rgba(127, 127, 127, 0.06));
+}
+
+.driver-tree-detail-pane {
+    min-width: 0;
+    overflow: auto;
+    color: var(--text);
+    background: var(--bg-panel, #fff);
+}
+
+.driver-tree-list,
+.driver-tree-children {
+    margin: 0;
+    padding: 6px 0;
+    list-style: none;
+}
+
+.driver-tree-children {
+    padding-top: 0;
+    padding-left: 18px;
+}
+
+.driver-tree-node {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    width: 100%;
+    min-height: 30px;
+    padding: 4px 10px;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+}
+
+.driver-tree-node:hover,
+.driver-tree-node.active {
+    background: var(--accent-soft, rgba(47, 128, 237, 0.14));
+}
+
+.driver-tree-node.child {
+    color: inherit;
+    opacity: 0.86;
+}
+
+.tree-toggle,
+.tree-leaf {
+    flex: 0 0 16px;
+    width: 16px;
+    color: var(--muted);
+    text-align: center;
+}
+
+.driver-tree-row-panel {
+    padding: 12px;
+}
+
+.driver-tree-row-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.driver-tree-row-toolbar strong {
+    color: inherit;
+    font-size: 15px;
+}
+
+.driver-tree-row-fields {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    align-items: end;
+    min-width: 0;
+}
+
+.driver-tree-row-fields .driver-field {
+    min-width: 0;
+}
+
+.driver-tree-row-fields .driver-field span:first-child {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.driver-tree-row-fields .driver-nested-grid-editor {
+    grid-column: 1 / -1;
+    width: 100%;
+    min-width: 0;
+    margin-top: 2px;
+    overflow: auto;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    color: var(--text);
+    background: var(--bg-panel, #fff);
+}
+
+.driver-tree-row-fields .driver-list-toolbar {
+    min-height: 34px;
+    padding: 5px 8px;
+}
+
+.driver-tree-row-fields .driver-grid-table {
+    min-width: 640px;
+}
+
+.driver-tree-row-fields .driver-grid-table th,
+.driver-tree-row-fields .driver-grid-table td {
+    height: 32px;
+    padding: 4px 6px;
+}
+
+.driver-tree-row-fields input,
+.driver-tree-row-fields select,
+.driver-tree-row-fields textarea {
+    min-width: 0;
+}
+
+@media (max-width: 1100px) {
+    .driver-tree-list-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .driver-tree-list-pane {
+        max-height: 220px;
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+    }
+
+    .driver-tree-row-fields {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 720px) {
+    .driver-tree-row-fields {
+        grid-template-columns: 1fr;
+    }
+}

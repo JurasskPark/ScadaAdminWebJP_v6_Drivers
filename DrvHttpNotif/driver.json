@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 2,
+  "code": "DrvHttpNotif",
+  "name": "HTTP Notifications",
+  "roles": [
+    "device"
+  ],
+  "owner": "upstream",
+  "origin": "upstream",
+  "packageKind": "compiled",
+  "admin": {
+    "descriptor": "AdminWeb/DriverDescriptor.json",
+    "options": null
+  },
+  "runtime": {
+    "entryAssembly": "DrvHttpNotif.View.dll",
+    "dependencies": []
+  },
+  "build": {
+    "project": "Drivers/DrvHttpNotif/DrvHttpNotif.View/DrvHttpNotif.View.csproj",
+    "output": "Drivers/DrvHttpNotif/DrvHttpNotif.View/bin/{Configuration}/net10.0-windows",
+    "extraFiles": [],
+    "releasePackages": []
+  }
+}

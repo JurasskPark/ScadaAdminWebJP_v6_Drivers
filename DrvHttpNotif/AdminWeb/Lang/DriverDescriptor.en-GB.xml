@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DriverDescriptorDictionaries>
+  <Dictionary key="DrvHttpNotif.AdminWeb">
+    <Phrase key="DrvHttpNotifDriverName">HTTP Notifications</Phrase>
+    <Phrase key="DrvHttpNotifDescription">Descriptor for HTTP notification device configuration.</Phrase>
+    <Phrase key="DrvHttpNotifCategoriesRequestName">HTTP request</Phrase>
+    <Phrase key="DrvHttpNotifCategoriesRequestFieldsUriName">URI</Phrase>
+    <Phrase key="DrvHttpNotifCategoriesRequestFieldsMethodName">Method</Phrase>
+    <Phrase key="DrvHttpNotifCategoriesRequestFieldsMethodOptionsGetLabel">GET</Phrase>
+    <Phrase key="DrvHttpNotifCategoriesRequestFieldsMethodOptionsPostLabel">POST</Phrase>
+    <Phrase key="DrvHttpNotifCategoriesRequestFieldsContentTypeName">Content-Type</Phrase>
+    <Phrase key="DrvHttpNotifCategoriesRequestFieldsContentEscapingName">Parameter encoding</Phrase>
+    <Phrase key="DrvHttpNotifCategoriesRequestFieldsContentEscapingOptionsNoneLabel">None</Phrase>
+    <Phrase key="DrvHttpNotifCategoriesRequestFieldsContentEscapingOptionsEncodeUrlLabel">EncodeUrl</Phrase>
+    <Phrase key="DrvHttpNotifCategoriesRequestFieldsContentEscapingOptionsEncodeJsonLabel">EncodeJson</Phrase>
+    <Phrase key="DrvHttpNotifCategoriesRequestFieldsContentName">Content</Phrase>
+    <Phrase key="DrvHttpNotifCategoriesRequestFieldsHeadersName">Headers</Phrase>
+    <Phrase key="DrvHttpNotifCategoriesRequestFieldsHeadersItemName">Header</Phrase>
+    <Phrase key="DrvHttpNotifCategoriesRequestFieldsHeadersFieldsNameName">Name</Phrase>
+    <Phrase key="DrvHttpNotifCategoriesRequestFieldsHeadersFieldsValueName">Value</Phrase>
+    <Phrase key="DrvHttpNotifCategoriesParametersName">Options</Phrase>
+    <Phrase key="DrvHttpNotifCategoriesParametersFieldsParamEnabledName">Allow parameters</Phrase>
+    <Phrase key="DrvHttpNotifCategoriesParametersFieldsAddrSepName">Address separator</Phrase>
+    <Phrase key="DrvHttpNotifCategoriesParametersFieldsParamBeginName">Parameter start</Phrase>
+    <Phrase key="DrvHttpNotifCategoriesParametersFieldsParamEndName">Parameter end</Phrase>
+    <Phrase key="DrvHttpNotifActionsGetTagsName">Show tags</Phrase>
+    <Phrase key="DrvHttpNotifActionsGetTagsDescription">Shows the channel prototypes created by the HTTP notification driver.</Phrase>
+  </Dictionary>
+</DriverDescriptorDictionaries>

@@ -1,28 +1,25 @@
 {
-  "enabled": true,
+  "schemaVersion": 2,
   "code": "DrvModbus",
   "name": "Modbus",
-  "owner": "upstream",
-  "origin": "OtherVendors",
-  "sourcePath": "Drivers/OtherVendors/DrvModbus/DrvModbus.View",
-  "buildMode": "build-list",
-  "runtime": {
-    "source": "Drivers/OtherVendors/DrvModbus/DrvModbus.View/bin/{Configuration}/net8.0-windows",
-    "target": "Drivers/DrvModbus"
-  },
-  "webDescriptor": {
-    "source": "Drivers/OtherVendors/DrvModbus/DrvModbus.View/AdminWeb/DriverDescriptor.json",
-    "target": "DriverDescriptors/DrvModbus.json"
-  },
-  "assets": [
-    {
-      "source": "ScadaAdminWebJP/wwwroot/drivers/DrvModbus",
-      "target": "wwwroot/drivers/DrvModbus"
-    }
+  "roles": [
+    "device"
   ],
-  "extraFiles": [],
-  "releasePackages": [],
-  "notes": [
-    "Active Web Admin runtime source. Uses the flattened OtherVendors driver source layout."
-  ]
+  "owner": "upstream",
+  "origin": "upstream",
+  "packageKind": "compiled",
+  "admin": {
+    "descriptor": "AdminWeb/DriverDescriptor.json",
+    "options": null
+  },
+  "runtime": {
+    "entryAssembly": "DrvModbus.View.dll",
+    "dependencies": []
+  },
+  "build": {
+    "project": "Drivers/DrvModbus/DrvModbus.View/DrvModbus.View.csproj",
+    "output": "Drivers/DrvModbus/DrvModbus.View/bin/{Configuration}/net10.0-windows",
+    "extraFiles": [],
+    "releasePackages": []
+  }
 }

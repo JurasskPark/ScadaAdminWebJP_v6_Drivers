@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DriverDescriptorDictionaries>
+  <Dictionary key="DrvSnmp.AdminWeb">
+    <Phrase key="DrvSnmpDriverName">SNMP</Phrase>
+    <Phrase key="DrvSnmpDescription">Настройка устройства SNMP.</Phrase>
+    <Phrase key="DrvSnmpCategoriesOptionsName">Параметры</Phrase>
+    <Phrase key="DrvSnmpCategoriesOptionsFieldsReadCommunityName">Сообщество чтения</Phrase>
+    <Phrase key="DrvSnmpCategoriesOptionsFieldsWriteCommunityName">Сообщество записи</Phrase>
+    <Phrase key="DrvSnmpCategoriesOptionsFieldsSnmpVersionName">Версия SNMP</Phrase>
+    <Phrase key="DrvSnmpCategoriesOptionsFieldsSnmpVersionOptions1Label">SNMP v1</Phrase>
+    <Phrase key="DrvSnmpCategoriesOptionsFieldsSnmpVersionOptions2Label">SNMP v2c</Phrase>
+    <Phrase key="DrvSnmpCategoriesVarGroupsName">Группы переменных</Phrase>
+    <Phrase key="DrvSnmpCategoriesVarGroupsItemName">Группа</Phrase>
+    <Phrase key="DrvSnmpCategoriesVarGroupsFieldsActiveName">Активна</Phrase>
+    <Phrase key="DrvSnmpCategoriesVarGroupsFieldsNameName">Название</Phrase>
+    <Phrase key="DrvSnmpCategoriesVarGroupsFieldsVariablesName">Переменные</Phrase>
+    <Phrase key="DrvSnmpCategoriesVarGroupsFieldsVariablesItemName">Переменная</Phrase>
+    <Phrase key="DrvSnmpCategoriesVarGroupsFieldsVariablesFieldsNameName">Название</Phrase>
+    <Phrase key="DrvSnmpCategoriesVarGroupsFieldsVariablesFieldsTagCodeName">Код тега</Phrase>
+    <Phrase key="DrvSnmpCategoriesVarGroupsFieldsVariablesFieldsOidName">OID</Phrase>
+    <Phrase key="DrvSnmpCategoriesVarGroupsFieldsVariablesFieldsDataTypeName">Тип данных</Phrase>
+    <Phrase key="DrvSnmpCategoriesVarGroupsFieldsVariablesFieldsDataTypeOptionsDoubleLabel">Double</Phrase>
+    <Phrase key="DrvSnmpCategoriesVarGroupsFieldsVariablesFieldsDataTypeOptionsInt64Label">Int64</Phrase>
+    <Phrase key="DrvSnmpCategoriesVarGroupsFieldsVariablesFieldsDataTypeOptionsASCIILabel">ASCII</Phrase>
+    <Phrase key="DrvSnmpCategoriesVarGroupsFieldsVariablesFieldsDataTypeOptionsUnicodeLabel">Unicode</Phrase>
+    <Phrase key="DrvSnmpCategoriesVarGroupsFieldsVariablesFieldsDataLenName">Длина данных</Phrase>
+    <Phrase key="DrvSnmpActionsGetTagsName">Получить теги</Phrase>
+    <Phrase key="DrvSnmpActionsGetTagsDescription">Формирует список каналов по группам SNMP-переменных.</Phrase>
+  </Dictionary>
+</DriverDescriptorDictionaries>

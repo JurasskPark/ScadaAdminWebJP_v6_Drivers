@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DriverDescriptorDictionaries>
+  <Dictionary key="DrvCsvReader.AdminWeb">
+    <Phrase key="DrvCsvReaderDriverName">Чтение CSV</Phrase>
+    <Phrase key="DrvCsvReaderDescription">Дополнительные параметры устройства чтения CSV.</Phrase>
+    <Phrase key="DrvCsvReaderCategoriesOptionsName">Параметры</Phrase>
+    <Phrase key="DrvCsvReaderCategoriesOptionsFieldsTagCountName">Количество тегов</Phrase>
+    <Phrase key="DrvCsvReaderCategoriesOptionsFieldsFileNameName">Файл CSV</Phrase>
+    <Phrase key="DrvCsvReaderCategoriesOptionsFieldsDecimalSeparatorName">Десятичный разделитель</Phrase>
+    <Phrase key="DrvCsvReaderCategoriesOptionsFieldsFieldDelimiterName">Разделитель полей</Phrase>
+    <Phrase key="DrvCsvReaderCategoriesOptionsFieldsReadModeName">Режим чтения</Phrase>
+    <Phrase key="DrvCsvReaderCategoriesOptionsFieldsReadModeOptionsRealTimeLabel">Реальное время</Phrase>
+    <Phrase key="DrvCsvReaderCategoriesOptionsFieldsReadModeOptionsDemoLabel">Демо</Phrase>
+    <Phrase key="DrvCsvReaderCategoriesOptionsFieldsDemoPeriodName">Период демо</Phrase>
+    <Phrase key="DrvCsvReaderCategoriesOptionsFieldsDemoPeriodOptionsOneHourLabel">Один час</Phrase>
+    <Phrase key="DrvCsvReaderCategoriesOptionsFieldsDemoPeriodOptionsOneDayLabel">Один день</Phrase>
+    <Phrase key="DrvCsvReaderCategoriesOptionsFieldsDemoPeriodOptionsOneMonthLabel">Один месяц</Phrase>
+    <Phrase key="DrvCsvReaderActionsGetTagsName">Получить теги</Phrase>
+    <Phrase key="DrvCsvReaderActionsGetTagsDescription">Формирует список каналов CSV по количеству тегов.</Phrase>
+  </Dictionary>
+</DriverDescriptorDictionaries>

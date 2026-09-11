@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 2,
+  "code": "DrvEmail",
+  "name": "Email",
+  "roles": [
+    "device"
+  ],
+  "owner": "upstream",
+  "origin": "upstream",
+  "packageKind": "compiled",
+  "admin": {
+    "descriptor": "AdminWeb/DriverDescriptor.json",
+    "options": null
+  },
+  "runtime": {
+    "entryAssembly": "DrvEmail.View.dll",
+    "dependencies": []
+  },
+  "build": {
+    "project": "Drivers/DrvEmail/DrvEmail.View/DrvEmail.View.csproj",
+    "output": "Drivers/DrvEmail/DrvEmail.View/bin/{Configuration}/net10.0-windows",
+    "extraFiles": [],
+    "releasePackages": []
+  }
+}

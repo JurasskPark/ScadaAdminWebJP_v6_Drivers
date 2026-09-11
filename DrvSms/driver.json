@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 2,
+  "code": "DrvSms",
+  "name": "SMS",
+  "roles": [
+    "device"
+  ],
+  "owner": "upstream",
+  "origin": "upstream",
+  "packageKind": "compiled",
+  "admin": {
+    "descriptor": "AdminWeb/DriverDescriptor.json",
+    "options": null
+  },
+  "runtime": {
+    "entryAssembly": "DrvSms.View.dll",
+    "dependencies": []
+  },
+  "build": {
+    "project": "Drivers/DrvSms/DrvSms.View/DrvSms.View.csproj",
+    "output": "Drivers/DrvSms/DrvSms.View/bin/{Configuration}/net10.0-windows",
+    "extraFiles": [],
+    "releasePackages": []
+  }
+}
