@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 2,
+  "code": "DrvCsvReader",
+  "name": "CSV Reader",
+  "roles": [
+    "device"
+  ],
+  "owner": "upstream",
+  "origin": "upstream",
+  "packageKind": "compiled",
+  "admin": {
+    "descriptor": "AdminWeb/DriverDescriptor.json",
+    "options": null
+  },
+  "runtime": {
+    "entryAssembly": "DrvCsvReader.View.dll",
+    "dependencies": []
+  },
+  "build": {
+    "project": "Drivers/DrvCsvReader/DrvCsvReader.View/DrvCsvReader.View.csproj",
+    "output": "Drivers/DrvCsvReader/DrvCsvReader.View/bin/{Configuration}/net10.0-windows",
+    "extraFiles": [],
+    "releasePackages": []
+  }
+}

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DriverDescriptorDictionaries>
+  <Dictionary key="DrvSms.AdminWeb">
+    <Phrase key="DrvSmsDriverName">SMS</Phrase>
+    <Phrase key="DrvSmsDescription">Статические прототипы каналов SMS-драйвера.</Phrase>
+    <Phrase key="DrvSmsCategoriesChannelsName">Каналы</Phrase>
+    <Phrase key="DrvSmsActionsGetTagsName">Получить теги</Phrase>
+    <Phrase key="DrvSmsActionsGetTagsDescription">Показывает статические каналы SMS-драйвера.</Phrase>
+  </Dictionary>
+</DriverDescriptorDictionaries>

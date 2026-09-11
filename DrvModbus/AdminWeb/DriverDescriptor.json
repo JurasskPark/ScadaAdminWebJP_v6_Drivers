@@ -1,0 +1,526 @@
+{
+  "driverCode": "DrvModbus",
+  "driverName": "Modbus",
+  "version": "1.0.1",
+  "description": "TreeView version of the Modbus device template descriptor.",
+  "configFile": "DriverConfigs/DrvModbus.xml",
+  "omitRootCodeAttribute": true,
+  "assets": {
+    "styles": [
+      "/drivers/DrvModbus/driver.css"
+    ]
+  },
+  "actionProvider": {
+    "assemblyFile": "$(AppDir)/Drivers/DrvModbus/runtime/DrvModbus.View.dll",
+    "entryPoint": "Scada.Comm.Drivers.DrvModbus.View.AdminActionProvider"
+  },
+  "actions": [
+    {
+      "actionId": "GetTags",
+      "name": "Get tags",
+      "description": "Builds the tag list from read commands and their registers.",
+      "placement": "categoryToolbar",
+      "categoryId": "readCommands",
+      "input": {
+        "readCommands": "listValues.readCommands",
+        "readCommandRegisters": "nestedGridValues.readCommands"
+      },
+      "result": {
+        "type": "table",
+        "target": "values.readCommands.tags"
+      },
+      "nameKey": "DrvModbusActionsGetTagsName",
+      "descriptionKey": "DrvModbusActionsGetTagsDescription"
+    },
+    {
+      "actionId": "GetSampleRegisters",
+      "name": "Add sample registers",
+      "description": "Adds sample rows to the selected read command's nested register table.",
+      "placement": "categoryToolbar",
+      "categoryId": "readCommands",
+      "result": {
+        "type": "list",
+        "target": "nestedGridValues.readCommands.selected.registers",
+        "applyMode": "append"
+      },
+      "nameKey": "DrvModbusActionsGetSampleRegistersName",
+      "descriptionKey": "DrvModbusActionsGetSampleRegistersDescription"
+    },
+    {
+      "actionId": "PreviewSelectedReadCommand",
+      "name": "Preview selected command",
+      "description": "Shows the read command and registers selected in the tree.",
+      "placement": "categoryToolbar",
+      "categoryId": "readCommands",
+      "input": {
+        "readCommand": "listValues.readCommands.selected",
+        "readCommandRegisters": "nestedGridValues.readCommands.selected"
+      },
+      "result": {
+        "type": "table",
+        "target": "values.readCommands.selectedPreview"
+      },
+      "nameKey": "DrvModbusActionsPreviewSelectedReadCommandName",
+      "descriptionKey": "DrvModbusActionsPreviewSelectedReadCommandDescription"
+    },
+    {
+      "actionId": "GetCommands",
+      "name": "Get commands",
+      "description": "Builds the command list from the current command table.",
+      "placement": "categoryToolbar",
+      "categoryId": "commands",
+      "input": {
+        "commands": "listValues.commands"
+      },
+      "result": {
+        "type": "table",
+        "target": "values.commands.commands"
+      },
+      "nameKey": "DrvModbusActionsGetCommandsName",
+      "descriptionKey": "DrvModbusActionsGetCommandsDescription"
+    }
+  ],
+  "categories": [
+    {
+      "id": "options",
+      "name": "Options",
+      "isSingleton": true,
+      "columns": 2,
+      "xmlPath": "/DeviceTemplate/Options",
+      "fields": [
+        {
+          "id": "zeroAddr",
+          "name": "Zero-based addresses",
+          "type": "boolean",
+          "order": 10,
+          "xmlPath": "ZeroAddr",
+          "default": false,
+          "nameKey": "DrvModbusCategoriesOptionsFieldsZeroAddrName"
+        },
+        {
+          "id": "decAddr",
+          "name": "Decimal addresses",
+          "type": "boolean",
+          "order": 20,
+          "xmlPath": "DecAddr",
+          "default": true,
+          "nameKey": "DrvModbusCategoriesOptionsFieldsDecAddrName"
+        },
+        {
+          "id": "defByteOrder2",
+          "name": "Byte order 2",
+          "type": "string",
+          "order": 30,
+          "xmlPath": "DefByteOrder2",
+          "default": "",
+          "nameKey": "DrvModbusCategoriesOptionsFieldsDefByteOrder2Name"
+        },
+        {
+          "id": "defByteOrder4",
+          "name": "Byte order 4",
+          "type": "string",
+          "order": 40,
+          "xmlPath": "DefByteOrder4",
+          "default": "",
+          "nameKey": "DrvModbusCategoriesOptionsFieldsDefByteOrder4Name"
+        },
+        {
+          "id": "defByteOrder8",
+          "name": "Byte order 8",
+          "type": "string",
+          "order": 50,
+          "xmlPath": "DefByteOrder8",
+          "default": "",
+          "nameKey": "DrvModbusCategoriesOptionsFieldsDefByteOrder8Name"
+        }
+      ],
+      "nameKey": "DrvModbusCategoriesOptionsName"
+    },
+    {
+      "id": "readCommands",
+      "name": "Read commands",
+      "isList": true,
+      "viewMode": "tree",
+      "itemName": "Read command",
+      "xmlPath": "/DeviceTemplate/ElemGroups/ElemGroup",
+      "fields": [
+        {
+          "id": "active",
+          "name": "Active",
+          "type": "boolean",
+          "order": 10,
+          "xmlPath": "@active",
+          "default": true,
+          "nameKey": "DrvModbusCategoriesReadCommandsFieldsActiveName"
+        },
+        {
+          "id": "name",
+          "name": "Name",
+          "type": "string",
+          "required": true,
+          "order": 20,
+          "xmlPath": "@name",
+          "default": "Read command",
+          "nameKey": "DrvModbusCategoriesReadCommandsFieldsNameName"
+        },
+        {
+          "id": "dataBlock",
+          "name": "Data block",
+          "type": "select",
+          "required": true,
+          "order": 30,
+          "xmlPath": "@dataBlock",
+          "default": "HoldingRegisters",
+          "options": [
+            {
+              "value": "DiscreteInputs",
+              "label": "Discrete Inputs",
+              "labelKey": "DrvModbusCategoriesReadCommandsFieldsDataBlockOptionsDiscreteInputsLabel"
+            },
+            {
+              "value": "Coils",
+              "label": "Coils",
+              "labelKey": "DrvModbusCategoriesReadCommandsFieldsDataBlockOptionsCoilsLabel"
+            },
+            {
+              "value": "InputRegisters",
+              "label": "Input Registers",
+              "labelKey": "DrvModbusCategoriesReadCommandsFieldsDataBlockOptionsInputRegistersLabel"
+            },
+            {
+              "value": "HoldingRegisters",
+              "label": "Holding Registers",
+              "labelKey": "DrvModbusCategoriesReadCommandsFieldsDataBlockOptionsHoldingRegistersLabel"
+            },
+            {
+              "value": "Custom",
+              "label": "Custom",
+              "labelKey": "DrvModbusCategoriesReadCommandsFieldsDataBlockOptionsCustomLabel"
+            }
+          ],
+          "nameKey": "DrvModbusCategoriesReadCommandsFieldsDataBlockName"
+        },
+        {
+          "id": "address",
+          "name": "Start address",
+          "type": "integer",
+          "required": true,
+          "min": 0,
+          "max": 65535,
+          "order": 40,
+          "xmlPath": "@address",
+          "default": 0,
+          "nameKey": "DrvModbusCategoriesReadCommandsFieldsAddressName"
+        },
+        {
+          "id": "registers",
+          "name": "Registers",
+          "type": "grid",
+          "order": 50,
+          "xmlPath": "Elem",
+          "itemName": "Register",
+          "fields": [
+            {
+              "id": "tagCode",
+              "name": "Tag code",
+              "type": "string",
+              "order": 10,
+              "xmlPath": "@tagCode",
+              "default": "",
+              "nameKey": "DrvModbusCategoriesReadCommandsFieldsRegistersFieldsTagCodeName"
+            },
+            {
+              "id": "name",
+              "name": "Name",
+              "type": "string",
+              "required": true,
+              "order": 20,
+              "xmlPath": "@name",
+              "default": "Register",
+              "nameKey": "DrvModbusCategoriesReadCommandsFieldsRegistersFieldsNameName"
+            },
+            {
+              "id": "elementType",
+              "name": "Type",
+              "type": "select",
+              "required": true,
+              "order": 30,
+              "xmlPath": "@type",
+              "default": "ushort",
+              "options": [
+                {
+                  "value": "bool",
+                  "label": "Bool",
+                  "labelKey": "DrvModbusCategoriesReadCommandsFieldsRegistersFieldsElementTypeOptionsBoolLabel"
+                },
+                {
+                  "value": "short",
+                  "label": "Int16",
+                  "labelKey": "DrvModbusCategoriesReadCommandsFieldsRegistersFieldsElementTypeOptionsShortLabel"
+                },
+                {
+                  "value": "ushort",
+                  "label": "UInt16",
+                  "labelKey": "DrvModbusCategoriesReadCommandsFieldsRegistersFieldsElementTypeOptionsUshortLabel"
+                },
+                {
+                  "value": "int",
+                  "label": "Int32",
+                  "labelKey": "DrvModbusCategoriesReadCommandsFieldsRegistersFieldsElementTypeOptionsIntLabel"
+                },
+                {
+                  "value": "uint",
+                  "label": "UInt32",
+                  "labelKey": "DrvModbusCategoriesReadCommandsFieldsRegistersFieldsElementTypeOptionsUintLabel"
+                },
+                {
+                  "value": "float",
+                  "label": "Float",
+                  "labelKey": "DrvModbusCategoriesReadCommandsFieldsRegistersFieldsElementTypeOptionsFloatLabel"
+                },
+                {
+                  "value": "double",
+                  "label": "Double",
+                  "labelKey": "DrvModbusCategoriesReadCommandsFieldsRegistersFieldsElementTypeOptionsDoubleLabel"
+                }
+              ],
+              "nameKey": "DrvModbusCategoriesReadCommandsFieldsRegistersFieldsElementTypeName"
+            },
+            {
+              "id": "byteOrder",
+              "name": "Byte order",
+              "type": "string",
+              "order": 40,
+              "xmlPath": "@byteOrder",
+              "default": "",
+              "omitIfEmpty": true,
+              "nameKey": "DrvModbusCategoriesReadCommandsFieldsRegistersFieldsByteOrderName"
+            },
+            {
+              "id": "readOnly",
+              "name": "Read-only",
+              "type": "boolean",
+              "order": 50,
+              "xmlPath": "@readOnly",
+              "default": false,
+              "nameKey": "DrvModbusCategoriesReadCommandsFieldsRegistersFieldsReadOnlyName"
+            },
+            {
+              "id": "isBitMask",
+              "name": "Bit mask",
+              "type": "boolean",
+              "order": 60,
+              "xmlPath": "@isBitMask",
+              "default": false,
+              "nameKey": "DrvModbusCategoriesReadCommandsFieldsRegistersFieldsIsBitMaskName"
+            }
+          ],
+          "nameKey": "DrvModbusCategoriesReadCommandsFieldsRegistersName",
+          "itemNameKey": "DrvModbusCategoriesReadCommandsFieldsRegistersItemName"
+        }
+      ],
+      "nameKey": "DrvModbusCategoriesReadCommandsName",
+      "itemNameKey": "DrvModbusCategoriesReadCommandsItemName"
+    },
+    {
+      "id": "commands",
+      "name": "Write commands",
+      "isList": true,
+      "itemName": "Command",
+      "xmlPath": "/DeviceTemplate/Cmds/Cmd",
+      "fields": [
+        {
+          "id": "commandCode",
+          "name": "Command code",
+          "type": "string",
+          "order": 10,
+          "xmlPath": "@cmdCode",
+          "default": "CMD_1",
+          "nameKey": "DrvModbusCategoriesCommandsFieldsCommandCodeName"
+        },
+        {
+          "id": "commandNumber",
+          "name": "Command number",
+          "type": "integer",
+          "min": 0,
+          "max": 65535,
+          "order": 20,
+          "xmlPath": "@cmdNum",
+          "default": 1,
+          "nameKey": "DrvModbusCategoriesCommandsFieldsCommandNumberName"
+        },
+        {
+          "id": "name",
+          "name": "Name",
+          "type": "string",
+          "required": true,
+          "order": 30,
+          "xmlPath": "@name",
+          "default": "CMD_1",
+          "nameKey": "DrvModbusCategoriesCommandsFieldsNameName"
+        },
+        {
+          "id": "dataBlock",
+          "name": "Data block",
+          "type": "select",
+          "required": true,
+          "order": 40,
+          "xmlPath": "@dataBlock",
+          "default": "Coils",
+          "options": [
+            {
+              "value": "Coils",
+              "label": "Coils",
+              "labelKey": "DrvModbusCategoriesCommandsFieldsDataBlockOptionsCoilsLabel"
+            },
+            {
+              "value": "HoldingRegisters",
+              "label": "Holding Registers",
+              "labelKey": "DrvModbusCategoriesCommandsFieldsDataBlockOptionsHoldingRegistersLabel"
+            },
+            {
+              "value": "Custom",
+              "label": "Custom",
+              "labelKey": "DrvModbusCategoriesCommandsFieldsDataBlockOptionsCustomLabel"
+            }
+          ],
+          "nameKey": "DrvModbusCategoriesCommandsFieldsDataBlockName"
+        },
+        {
+          "id": "address",
+          "name": "Address",
+          "type": "integer",
+          "min": 0,
+          "max": 65535,
+          "order": 50,
+          "xmlPath": "@address",
+          "default": 0,
+          "dependsOn": {
+            "fieldId": "dataBlock",
+            "operator": "notEquals",
+            "value": "Custom"
+          },
+          "nameKey": "DrvModbusCategoriesCommandsFieldsAddressName"
+        },
+        {
+          "id": "multiple",
+          "name": "Multiple elements",
+          "type": "boolean",
+          "order": 60,
+          "xmlPath": "@multiple",
+          "default": false,
+          "dependsOn": {
+            "fieldId": "dataBlock",
+            "operator": "notEquals",
+            "value": "Custom"
+          },
+          "nameKey": "DrvModbusCategoriesCommandsFieldsMultipleName"
+        },
+        {
+          "id": "elementType",
+          "name": "Element type",
+          "type": "select",
+          "order": 70,
+          "xmlPath": "@elemType",
+          "default": "bool",
+          "omitIfDefault": true,
+          "dependsOn": {
+            "fieldId": "multiple",
+            "operator": "equals",
+            "value": "true"
+          },
+          "options": [
+            {
+              "value": "bool",
+              "label": "Boolean",
+              "labelKey": "DrvModbusCategoriesCommandsFieldsElementTypeOptionsBoolLabel"
+            },
+            {
+              "value": "short",
+              "label": "Int16",
+              "labelKey": "DrvModbusCategoriesCommandsFieldsElementTypeOptionsShortLabel"
+            },
+            {
+              "value": "ushort",
+              "label": "UInt16",
+              "labelKey": "DrvModbusCategoriesCommandsFieldsElementTypeOptionsUshortLabel"
+            },
+            {
+              "value": "int",
+              "label": "Int32",
+              "labelKey": "DrvModbusCategoriesCommandsFieldsElementTypeOptionsIntLabel"
+            },
+            {
+              "value": "uint",
+              "label": "UInt32",
+              "labelKey": "DrvModbusCategoriesCommandsFieldsElementTypeOptionsUintLabel"
+            },
+            {
+              "value": "float",
+              "label": "Float32",
+              "labelKey": "DrvModbusCategoriesCommandsFieldsElementTypeOptionsFloatLabel"
+            },
+            {
+              "value": "double",
+              "label": "Double",
+              "labelKey": "DrvModbusCategoriesCommandsFieldsElementTypeOptionsDoubleLabel"
+            }
+          ],
+          "nameKey": "DrvModbusCategoriesCommandsFieldsElementTypeName"
+        },
+        {
+          "id": "elementCount",
+          "name": "Element count",
+          "type": "integer",
+          "min": 1,
+          "max": 125,
+          "order": 80,
+          "xmlPath": "@elemCnt",
+          "default": 1,
+          "omitIfDefault": true,
+          "dependsOn": {
+            "fieldId": "multiple",
+            "operator": "equals",
+            "value": "true"
+          },
+          "nameKey": "DrvModbusCategoriesCommandsFieldsElementCountName"
+        },
+        {
+          "id": "byteOrder",
+          "name": "Byte order",
+          "type": "string",
+          "order": 90,
+          "xmlPath": "@byteOrder",
+          "default": "",
+          "omitIfEmpty": true,
+          "dependsOn": {
+            "fieldId": "multiple",
+            "operator": "equals",
+            "value": "true"
+          },
+          "nameKey": "DrvModbusCategoriesCommandsFieldsByteOrderName"
+        },
+        {
+          "id": "functionCode",
+          "name": "Function code",
+          "type": "integer",
+          "min": 0,
+          "max": 255,
+          "order": 100,
+          "xmlPath": "@funcCode",
+          "default": 0,
+          "dependsOn": {
+            "fieldId": "dataBlock",
+            "operator": "equals",
+            "value": "Custom"
+          },
+          "nameKey": "DrvModbusCategoriesCommandsFieldsFunctionCodeName"
+        }
+      ],
+      "nameKey": "DrvModbusCategoriesCommandsName",
+      "itemNameKey": "DrvModbusCategoriesCommandsItemName"
+    }
+  ],
+  "driverNameKey": "DrvModbusDriverName",
+  "descriptionKey": "DrvModbusDescription"
+}

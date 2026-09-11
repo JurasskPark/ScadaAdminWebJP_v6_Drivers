@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <FileVersion>6.5.0.0</FileVersion>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <RootNamespace>Scada.Comm.Drivers.DrvCsvReader.Logic</RootNamespace>
+    <Authors>Mikhail Shiryaev</Authors>
+    <Company>Rapid Software LLC</Company>
+    <Product>Rapid SCADA</Product>
+    <Copyright>Copyright © 2025</Copyright>
+    <Version>6.5.0.0</Version>
+    <AssemblyVersion>6.5.0.0</AssemblyVersion>
+  </PropertyGroup>
+
+  <Import Project="..\DrvCsvReader.Shared\DrvCsvReader.Shared.projitems" Label="Shared" />
+
+  <ItemGroup>
+    <Reference Include="ScadaCommCommon">
+      <HintPath>..\..\..\System\ScadaComm\ScadaCommCommon\bin\$(Configuration)\net10.0\ScadaCommCommon.dll</HintPath>
+    </Reference>
+    <Reference Include="ScadaCommon">
+      <HintPath>..\..\..\System\ScadaCommon\ScadaCommon\bin\$(Configuration)\net10.0\ScadaCommon.dll</HintPath>
+    </Reference>
+    <Reference Include="ScadaCommon.Log">
+      <HintPath>..\..\..\System\ScadaCommon\ScadaCommon.Log\bin\$(Configuration)\net10.0\ScadaCommon.Log.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
+
+
+

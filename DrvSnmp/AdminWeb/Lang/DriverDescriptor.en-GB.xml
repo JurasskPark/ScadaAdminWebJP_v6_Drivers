@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DriverDescriptorDictionaries>
+  <Dictionary key="DrvSnmp.AdminWeb">
+    <Phrase key="DrvSnmpDriverName">SNMP</Phrase>
+    <Phrase key="DrvSnmpDescription">Web editor descriptor for SNMP device configuration.</Phrase>
+    <Phrase key="DrvSnmpCategoriesOptionsName">Options</Phrase>
+    <Phrase key="DrvSnmpCategoriesOptionsFieldsReadCommunityName">Read community</Phrase>
+    <Phrase key="DrvSnmpCategoriesOptionsFieldsWriteCommunityName">Write community</Phrase>
+    <Phrase key="DrvSnmpCategoriesOptionsFieldsSnmpVersionName">SNMP version</Phrase>
+    <Phrase key="DrvSnmpCategoriesOptionsFieldsSnmpVersionOptions1Label">SNMP v1</Phrase>
+    <Phrase key="DrvSnmpCategoriesOptionsFieldsSnmpVersionOptions2Label">SNMP v2c</Phrase>
+    <Phrase key="DrvSnmpCategoriesVarGroupsName">Variable groups</Phrase>
+    <Phrase key="DrvSnmpCategoriesVarGroupsItemName">Group</Phrase>
+    <Phrase key="DrvSnmpCategoriesVarGroupsFieldsActiveName">Active</Phrase>
+    <Phrase key="DrvSnmpCategoriesVarGroupsFieldsNameName">Name</Phrase>
+    <Phrase key="DrvSnmpCategoriesVarGroupsFieldsVariablesName">Variables</Phrase>
+    <Phrase key="DrvSnmpCategoriesVarGroupsFieldsVariablesItemName">Variable</Phrase>
+    <Phrase key="DrvSnmpCategoriesVarGroupsFieldsVariablesFieldsNameName">Name</Phrase>
+    <Phrase key="DrvSnmpCategoriesVarGroupsFieldsVariablesFieldsTagCodeName">Tag code</Phrase>
+    <Phrase key="DrvSnmpCategoriesVarGroupsFieldsVariablesFieldsOidName">OID</Phrase>
+    <Phrase key="DrvSnmpCategoriesVarGroupsFieldsVariablesFieldsDataTypeName">Data type</Phrase>
+    <Phrase key="DrvSnmpCategoriesVarGroupsFieldsVariablesFieldsDataTypeOptionsDoubleLabel">Double</Phrase>
+    <Phrase key="DrvSnmpCategoriesVarGroupsFieldsVariablesFieldsDataTypeOptionsInt64Label">Int64</Phrase>
+    <Phrase key="DrvSnmpCategoriesVarGroupsFieldsVariablesFieldsDataTypeOptionsASCIILabel">ASCII</Phrase>
+    <Phrase key="DrvSnmpCategoriesVarGroupsFieldsVariablesFieldsDataTypeOptionsUnicodeLabel">Unicode</Phrase>
+    <Phrase key="DrvSnmpCategoriesVarGroupsFieldsVariablesFieldsDataLenName">Data length</Phrase>
+    <Phrase key="DrvSnmpActionsGetTagsName">Get tags</Phrase>
+    <Phrase key="DrvSnmpActionsGetTagsDescription">Builds the channel list from the SNMP variable groups.</Phrase>
+  </Dictionary>
+</DriverDescriptorDictionaries>

@@ -1,0 +1,422 @@
+{
+  "driverCode": "DrvEnronModbus",
+  "driverName": "Enron Modbus",
+  "version": "1.0.0",
+  "description": "TreeView version of the Enron Modbus driver configuration descriptor.",
+  "configFile": "DriverConfigs/DrvEnronModbus.xml",
+  "assets": {
+    "styles": [
+      "/drivers/DrvEnronModbus/driver.css"
+    ]
+  },
+  "actionProvider": {
+    "assemblyFile": "$(AppDir)/Drivers/DrvModbus/runtime/DrvModbus.View.dll",
+    "entryPoint": "Scada.Comm.Drivers.DrvModbus.View.AdminActionProvider"
+  },
+  "actions": [
+    {
+      "actionId": "GetTags",
+      "name": "Get tags",
+      "description": "Builds the tag list from read commands and their registers.",
+      "placement": "categoryToolbar",
+      "categoryId": "readCommands",
+      "input": {
+        "readCommands": "listValues.readCommands",
+        "readCommandRegisters": "nestedGridValues.readCommands"
+      },
+      "result": {
+        "type": "table",
+        "target": "values.readCommands.tags"
+      },
+      "nameKey": "DrvEnronModbusActionsGetTagsName",
+      "descriptionKey": "DrvEnronModbusActionsGetTagsDescription"
+    },
+    {
+      "actionId": "GetSampleRegisters",
+      "name": "Add sample registers",
+      "description": "Adds sample rows to the selected read command's nested register table.",
+      "placement": "categoryToolbar",
+      "categoryId": "readCommands",
+      "result": {
+        "type": "list",
+        "target": "nestedGridValues.readCommands.selected.registers",
+        "applyMode": "append"
+      },
+      "nameKey": "DrvEnronModbusActionsGetSampleRegistersName",
+      "descriptionKey": "DrvEnronModbusActionsGetSampleRegistersDescription"
+    },
+    {
+      "actionId": "PreviewSelectedReadCommand",
+      "name": "Preview selected command",
+      "description": "Shows the read command and registers selected in the tree.",
+      "placement": "categoryToolbar",
+      "categoryId": "readCommands",
+      "input": {
+        "readCommand": "listValues.readCommands.selected",
+        "readCommandRegisters": "nestedGridValues.readCommands.selected"
+      },
+      "result": {
+        "type": "table",
+        "target": "values.readCommands.selectedPreview"
+      },
+      "nameKey": "DrvEnronModbusActionsPreviewSelectedReadCommandName",
+      "descriptionKey": "DrvEnronModbusActionsPreviewSelectedReadCommandDescription"
+    },
+    {
+      "actionId": "GetCommands",
+      "name": "Get commands",
+      "description": "Builds the command list from the current command table.",
+      "placement": "categoryToolbar",
+      "categoryId": "commands",
+      "input": {
+        "commands": "listValues.commands"
+      },
+      "result": {
+        "type": "table",
+        "target": "values.commands.commands"
+      },
+      "nameKey": "DrvEnronModbusActionsGetCommandsName",
+      "descriptionKey": "DrvEnronModbusActionsGetCommandsDescription"
+    }
+  ],
+  "categories": [
+    {
+      "id": "readCommands",
+      "name": "Read commands",
+      "isList": true,
+      "viewMode": "tree",
+      "itemName": "Read command",
+      "xmlPath": "/DriverConfig/ElemGroups/ElemGroup",
+      "fields": [
+        {
+          "id": "active",
+          "name": "Active",
+          "type": "boolean",
+          "order": 10,
+          "xmlPath": "@active",
+          "default": true,
+          "nameKey": "DrvEnronModbusCategoriesReadCommandsFieldsActiveName"
+        },
+        {
+          "id": "name",
+          "name": "Name",
+          "type": "string",
+          "required": true,
+          "order": 20,
+          "xmlPath": "@name",
+          "default": "Read command",
+          "nameKey": "DrvEnronModbusCategoriesReadCommandsFieldsNameName"
+        },
+        {
+          "id": "dataBlock",
+          "name": "Data block",
+          "type": "select",
+          "required": true,
+          "order": 30,
+          "xmlPath": "@dataBlock",
+          "default": "HoldingRegisters",
+          "options": [
+            {
+              "value": "DiscreteInputs",
+              "label": "Discrete Inputs",
+              "labelKey": "DrvEnronModbusCategoriesReadCommandsFieldsDataBlockOptionsDiscreteInputsLabel"
+            },
+            {
+              "value": "Coils",
+              "label": "Coils",
+              "labelKey": "DrvEnronModbusCategoriesReadCommandsFieldsDataBlockOptionsCoilsLabel"
+            },
+            {
+              "value": "InputRegisters",
+              "label": "Input Registers",
+              "labelKey": "DrvEnronModbusCategoriesReadCommandsFieldsDataBlockOptionsInputRegistersLabel"
+            },
+            {
+              "value": "HoldingRegisters",
+              "label": "Holding Registers",
+              "labelKey": "DrvEnronModbusCategoriesReadCommandsFieldsDataBlockOptionsHoldingRegistersLabel"
+            },
+            {
+              "value": "Custom",
+              "label": "Custom",
+              "labelKey": "DrvEnronModbusCategoriesReadCommandsFieldsDataBlockOptionsCustomLabel"
+            }
+          ],
+          "nameKey": "DrvEnronModbusCategoriesReadCommandsFieldsDataBlockName"
+        },
+        {
+          "id": "address",
+          "name": "Start address",
+          "type": "integer",
+          "required": true,
+          "min": 0,
+          "max": 65535,
+          "order": 40,
+          "xmlPath": "@address",
+          "default": 0,
+          "nameKey": "DrvEnronModbusCategoriesReadCommandsFieldsAddressName"
+        },
+        {
+          "id": "registers",
+          "name": "Registers",
+          "type": "grid",
+          "order": 50,
+          "xmlPath": "Elem",
+          "itemName": "Register",
+          "fields": [
+            {
+              "id": "tagCode",
+              "name": "Tag code",
+              "type": "string",
+              "order": 10,
+              "xmlPath": "@tagCode",
+              "default": "",
+              "nameKey": "DrvEnronModbusCategoriesReadCommandsFieldsRegistersFieldsTagCodeName"
+            },
+            {
+              "id": "name",
+              "name": "Name",
+              "type": "string",
+              "required": true,
+              "order": 20,
+              "xmlPath": "@name",
+              "default": "Register",
+              "nameKey": "DrvEnronModbusCategoriesReadCommandsFieldsRegistersFieldsNameName"
+            },
+            {
+              "id": "elementType",
+              "name": "Type",
+              "type": "select",
+              "required": true,
+              "order": 30,
+              "xmlPath": "@type",
+              "default": "float",
+              "options": [
+                {
+                  "value": "bool",
+                  "label": "Bool",
+                  "labelKey": "DrvEnronModbusCategoriesReadCommandsFieldsRegistersFieldsElementTypeOptionsBoolLabel"
+                },
+                {
+                  "value": "byte",
+                  "label": "Byte",
+                  "labelKey": "DrvEnronModbusCategoriesReadCommandsFieldsRegistersFieldsElementTypeOptionsByteLabel"
+                },
+                {
+                  "value": "short",
+                  "label": "Int16",
+                  "labelKey": "DrvEnronModbusCategoriesReadCommandsFieldsRegistersFieldsElementTypeOptionsShortLabel"
+                },
+                {
+                  "value": "ushort",
+                  "label": "UInt16",
+                  "labelKey": "DrvEnronModbusCategoriesReadCommandsFieldsRegistersFieldsElementTypeOptionsUshortLabel"
+                },
+                {
+                  "value": "int",
+                  "label": "Int32",
+                  "labelKey": "DrvEnronModbusCategoriesReadCommandsFieldsRegistersFieldsElementTypeOptionsIntLabel"
+                },
+                {
+                  "value": "uint",
+                  "label": "UInt32",
+                  "labelKey": "DrvEnronModbusCategoriesReadCommandsFieldsRegistersFieldsElementTypeOptionsUintLabel"
+                },
+                {
+                  "value": "float",
+                  "label": "Float",
+                  "labelKey": "DrvEnronModbusCategoriesReadCommandsFieldsRegistersFieldsElementTypeOptionsFloatLabel"
+                },
+                {
+                  "value": "double",
+                  "label": "Double",
+                  "labelKey": "DrvEnronModbusCategoriesReadCommandsFieldsRegistersFieldsElementTypeOptionsDoubleLabel"
+                }
+              ],
+              "nameKey": "DrvEnronModbusCategoriesReadCommandsFieldsRegistersFieldsElementTypeName"
+            },
+            {
+              "id": "byteOrder",
+              "name": "Byte order",
+              "type": "string",
+              "order": 40,
+              "xmlPath": "@byteOrder",
+              "default": "",
+              "nameKey": "DrvEnronModbusCategoriesReadCommandsFieldsRegistersFieldsByteOrderName"
+            },
+            {
+              "id": "readOnly",
+              "name": "Read-only",
+              "type": "boolean",
+              "order": 50,
+              "xmlPath": "@readOnly",
+              "default": false,
+              "nameKey": "DrvEnronModbusCategoriesReadCommandsFieldsRegistersFieldsReadOnlyName"
+            },
+            {
+              "id": "isBitMask",
+              "name": "Bit mask",
+              "type": "boolean",
+              "order": 60,
+              "xmlPath": "@isBitMask",
+              "default": false,
+              "nameKey": "DrvEnronModbusCategoriesReadCommandsFieldsRegistersFieldsIsBitMaskName"
+            }
+          ],
+          "nameKey": "DrvEnronModbusCategoriesReadCommandsFieldsRegistersName",
+          "itemNameKey": "DrvEnronModbusCategoriesReadCommandsFieldsRegistersItemName"
+        }
+      ],
+      "nameKey": "DrvEnronModbusCategoriesReadCommandsName",
+      "itemNameKey": "DrvEnronModbusCategoriesReadCommandsItemName"
+    },
+    {
+      "id": "commands",
+      "name": "Write commands",
+      "isList": true,
+      "itemName": "Command",
+      "xmlPath": "/DriverConfig/Commands/Command",
+      "fields": [
+        {
+          "id": "commandCode",
+          "name": "Command code",
+          "type": "string",
+          "order": 10,
+          "xmlPath": "CommandCode",
+          "default": "CMD_1",
+          "nameKey": "DrvEnronModbusCategoriesCommandsFieldsCommandCodeName"
+        },
+        {
+          "id": "commandNumber",
+          "name": "Command number",
+          "type": "integer",
+          "min": 0,
+          "max": 65535,
+          "order": 20,
+          "xmlPath": "CommandNumber",
+          "default": 1,
+          "nameKey": "DrvEnronModbusCategoriesCommandsFieldsCommandNumberName"
+        },
+        {
+          "id": "name",
+          "name": "Name",
+          "type": "string",
+          "required": true,
+          "order": 30,
+          "xmlPath": "Name",
+          "default": "Command",
+          "nameKey": "DrvEnronModbusCategoriesCommandsFieldsNameName"
+        },
+        {
+          "id": "dataBlock",
+          "name": "Data block",
+          "type": "select",
+          "required": true,
+          "order": 40,
+          "xmlPath": "DataBlock",
+          "default": "Coils",
+          "options": [
+            {
+              "value": "Coils",
+              "label": "Coils",
+              "labelKey": "DrvEnronModbusCategoriesCommandsFieldsDataBlockOptionsCoilsLabel"
+            },
+            {
+              "value": "HoldingRegisters",
+              "label": "Holding Registers",
+              "labelKey": "DrvEnronModbusCategoriesCommandsFieldsDataBlockOptionsHoldingRegistersLabel"
+            },
+            {
+              "value": "Custom",
+              "label": "Custom",
+              "labelKey": "DrvEnronModbusCategoriesCommandsFieldsDataBlockOptionsCustomLabel"
+            }
+          ],
+          "nameKey": "DrvEnronModbusCategoriesCommandsFieldsDataBlockName"
+        },
+        {
+          "id": "address",
+          "name": "Address",
+          "type": "integer",
+          "min": 0,
+          "max": 65535,
+          "order": 50,
+          "xmlPath": "Address",
+          "default": 0,
+          "nameKey": "DrvEnronModbusCategoriesCommandsFieldsAddressName"
+        },
+        {
+          "id": "multiple",
+          "name": "Multiple elements",
+          "type": "boolean",
+          "order": 60,
+          "xmlPath": "Multiple",
+          "default": false,
+          "nameKey": "DrvEnronModbusCategoriesCommandsFieldsMultipleName"
+        },
+        {
+          "id": "elementType",
+          "name": "Element type",
+          "type": "select",
+          "order": 70,
+          "xmlPath": "ElementType",
+          "default": "bool",
+          "options": [
+            {
+              "value": "bool",
+              "label": "Boolean",
+              "labelKey": "DrvEnronModbusCategoriesCommandsFieldsElementTypeOptionsBoolLabel"
+            },
+            {
+              "value": "int16",
+              "label": "Int16",
+              "labelKey": "DrvEnronModbusCategoriesCommandsFieldsElementTypeOptionsInt16Label"
+            },
+            {
+              "value": "uint16",
+              "label": "UInt16",
+              "labelKey": "DrvEnronModbusCategoriesCommandsFieldsElementTypeOptionsUint16Label"
+            },
+            {
+              "value": "float32",
+              "label": "Float32",
+              "labelKey": "DrvEnronModbusCategoriesCommandsFieldsElementTypeOptionsFloat32Label"
+            }
+          ],
+          "nameKey": "DrvEnronModbusCategoriesCommandsFieldsElementTypeName"
+        },
+        {
+          "id": "elementCount",
+          "name": "Element count",
+          "type": "integer",
+          "min": 1,
+          "max": 125,
+          "order": 80,
+          "xmlPath": "ElementCount",
+          "default": 1,
+          "nameKey": "DrvEnronModbusCategoriesCommandsFieldsElementCountName"
+        },
+        {
+          "id": "functionCode",
+          "name": "Function code",
+          "type": "integer",
+          "min": 0,
+          "max": 255,
+          "order": 90,
+          "xmlPath": "FunctionCode",
+          "default": 0,
+          "dependsOn": {
+            "fieldId": "dataBlock",
+            "operator": "equals",
+            "value": "Custom"
+          },
+          "nameKey": "DrvEnronModbusCategoriesCommandsFieldsFunctionCodeName"
+        }
+      ],
+      "nameKey": "DrvEnronModbusCategoriesCommandsName",
+      "itemNameKey": "DrvEnronModbusCategoriesCommandsItemName"
+    }
+  ],
+  "driverNameKey": "DrvEnronModbusDriverName",
+  "descriptionKey": "DrvEnronModbusDescription"
+}

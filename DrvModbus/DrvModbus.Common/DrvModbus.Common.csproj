@@ -1,6 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <FileVersion>6.5.0.0</FileVersion>
     <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>Scada.Comm.Drivers.DrvModbus</RootNamespace>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
@@ -8,13 +9,13 @@
     <Company>Rapid Software LLC</Company>
     <Product>Rapid SCADA</Product>
     <Copyright>Copyright © 2026</Copyright>
-    <Version>6.0.0</Version>
-    <AssemblyVersion>6.0.0.5</AssemblyVersion>
+    <Version>6.5.0.0</Version>
+    <AssemblyVersion>6.5.0.0</AssemblyVersion>
   </PropertyGroup>
 
   <ItemGroup>
     <Reference Include="ScadaCommon">
-      <HintPath>..\..\..\..\System\ScadaCommon\ScadaCommon\bin\$(Configuration)\netstandard2.0\ScadaCommon.dll</HintPath>
+      <HintPath>..\..\..\System\ScadaCommon\ScadaCommon\bin\$(Configuration)\netstandard2.0\ScadaCommon.dll</HintPath>
     </Reference>
   </ItemGroup>
 

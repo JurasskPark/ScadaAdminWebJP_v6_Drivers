@@ -1,0 +1,199 @@
+{
+  "driverCode": "DrvHttpNotif",
+  "driverName": "HTTP Notifications",
+  "version": "0.1.0",
+  "description": "Descriptor for HTTP notification device configuration.",
+  "configFile": "DriverConfigs/DrvHttpNotif_001.xml",
+  "actionProvider": {
+    "assemblyFile": "$(AppDir)/Drivers/DrvHttpNotif/runtime/DrvHttpNotif.View.dll",
+    "entryPoint": "Scada.Comm.Drivers.DrvHttpNotif.View.AdminActionProvider"
+  },
+  "actions": [
+    {
+      "actionId": "GetTags",
+      "name": "Show tags",
+      "description": "Shows the channel prototypes created by the HTTP notification driver.",
+      "placement": "categoryToolbar",
+      "categoryId": "request",
+      "input": {},
+      "result": {
+        "type": "table",
+        "target": "values.request.generatedTags"
+      },
+      "nameKey": "DrvHttpNotifActionsGetTagsName",
+      "descriptionKey": "DrvHttpNotifActionsGetTagsDescription"
+    }
+  ],
+  "categories": [
+    {
+      "id": "request",
+      "name": "HTTP request",
+      "isSingleton": true,
+      "columns": 2,
+      "xmlPath": "/NotifDeviceConfig",
+      "fields": [
+        {
+          "id": "uri",
+          "name": "URI",
+          "type": "string",
+          "required": true,
+          "order": 10,
+          "xmlPath": "Uri",
+          "default": "",
+          "colSpan": 2,
+          "nameKey": "DrvHttpNotifCategoriesRequestFieldsUriName"
+        },
+        {
+          "id": "method",
+          "name": "Method",
+          "type": "select",
+          "required": true,
+          "order": 20,
+          "xmlPath": "Method",
+          "default": "Get",
+          "options": [
+            {
+              "value": "Get",
+              "label": "GET",
+              "labelKey": "DrvHttpNotifCategoriesRequestFieldsMethodOptionsGetLabel"
+            },
+            {
+              "value": "Post",
+              "label": "POST",
+              "labelKey": "DrvHttpNotifCategoriesRequestFieldsMethodOptionsPostLabel"
+            }
+          ],
+          "nameKey": "DrvHttpNotifCategoriesRequestFieldsMethodName"
+        },
+        {
+          "id": "contentType",
+          "name": "Content-Type",
+          "type": "string",
+          "order": 30,
+          "xmlPath": "ContentType",
+          "default": "",
+          "nameKey": "DrvHttpNotifCategoriesRequestFieldsContentTypeName"
+        },
+        {
+          "id": "contentEscaping",
+          "name": "Parameter encoding",
+          "type": "select",
+          "order": 40,
+          "xmlPath": "ContentEscaping",
+          "default": "None",
+          "options": [
+            {
+              "value": "None",
+              "label": "None",
+              "labelKey": "DrvHttpNotifCategoriesRequestFieldsContentEscapingOptionsNoneLabel"
+            },
+            {
+              "value": "EncodeUrl",
+              "label": "EncodeUrl",
+              "labelKey": "DrvHttpNotifCategoriesRequestFieldsContentEscapingOptionsEncodeUrlLabel"
+            },
+            {
+              "value": "EncodeJson",
+              "label": "EncodeJson",
+              "labelKey": "DrvHttpNotifCategoriesRequestFieldsContentEscapingOptionsEncodeJsonLabel"
+            }
+          ],
+          "nameKey": "DrvHttpNotifCategoriesRequestFieldsContentEscapingName"
+        },
+        {
+          "id": "content",
+          "name": "Content",
+          "type": "text",
+          "order": 50,
+          "xmlPath": "Content",
+          "default": "",
+          "colSpan": 2,
+          "rowSpan": 3,
+          "nameKey": "DrvHttpNotifCategoriesRequestFieldsContentName"
+        },
+        {
+          "id": "headers",
+          "name": "Headers",
+          "type": "grid",
+          "order": 60,
+          "xmlPath": "Headers/Header",
+          "itemName": "Header",
+          "colSpan": 2,
+          "fields": [
+            {
+              "id": "name",
+              "name": "Name",
+              "type": "string",
+              "required": true,
+              "order": 10,
+              "xmlPath": "@name",
+              "default": "Accept",
+              "nameKey": "DrvHttpNotifCategoriesRequestFieldsHeadersFieldsNameName"
+            },
+            {
+              "id": "value",
+              "name": "Value",
+              "type": "string",
+              "required": true,
+              "order": 20,
+              "xmlPath": "@value",
+              "default": "application/json",
+              "nameKey": "DrvHttpNotifCategoriesRequestFieldsHeadersFieldsValueName"
+            }
+          ],
+          "nameKey": "DrvHttpNotifCategoriesRequestFieldsHeadersName",
+          "itemNameKey": "DrvHttpNotifCategoriesRequestFieldsHeadersItemName"
+        }
+      ],
+      "nameKey": "DrvHttpNotifCategoriesRequestName"
+    },
+    {
+      "id": "parameters",
+      "name": "Options",
+      "isSingleton": true,
+      "columns": 2,
+      "xmlPath": "/NotifDeviceConfig",
+      "fields": [
+        {
+          "id": "paramEnabled",
+          "name": "Allow parameters",
+          "type": "boolean",
+          "order": 10,
+          "xmlPath": "ParamEnabled",
+          "default": true,
+          "nameKey": "DrvHttpNotifCategoriesParametersFieldsParamEnabledName"
+        },
+        {
+          "id": "addrSep",
+          "name": "Address separator",
+          "type": "string",
+          "order": 20,
+          "xmlPath": "AddrSep",
+          "default": ";",
+          "nameKey": "DrvHttpNotifCategoriesParametersFieldsAddrSepName"
+        },
+        {
+          "id": "paramBegin",
+          "name": "Parameter start",
+          "type": "string",
+          "order": 30,
+          "xmlPath": "ParamBegin",
+          "default": "{",
+          "nameKey": "DrvHttpNotifCategoriesParametersFieldsParamBeginName"
+        },
+        {
+          "id": "paramEnd",
+          "name": "Parameter end",
+          "type": "string",
+          "order": 40,
+          "xmlPath": "ParamEnd",
+          "default": "}",
+          "nameKey": "DrvHttpNotifCategoriesParametersFieldsParamEndName"
+        }
+      ],
+      "nameKey": "DrvHttpNotifCategoriesParametersName"
+    }
+  ],
+  "driverNameKey": "DrvHttpNotifDriverName",
+  "descriptionKey": "DrvHttpNotifDescription"
+}

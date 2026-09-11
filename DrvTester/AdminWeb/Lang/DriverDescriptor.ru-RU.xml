@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DriverDescriptorDictionaries>
+  <Dictionary key="DrvTester.AdminWeb">
+    <Phrase key="DrvTesterDriverName">Тестер</Phrase>
+    <Phrase key="DrvTesterDescription">Дополнительные параметры устройства-тестера.</Phrase>
+    <Phrase key="DrvTesterCategoriesOptionsName">Параметры</Phrase>
+    <Phrase key="DrvTesterCategoriesOptionsFieldsReadModeName">Режим чтения</Phrase>
+    <Phrase key="DrvTesterCategoriesOptionsFieldsReadModeOptionsStringLabel">String</Phrase>
+    <Phrase key="DrvTesterCategoriesOptionsFieldsReadModeOptionsBinaryLabel">Двоичный</Phrase>
+    <Phrase key="DrvTesterCategoriesOptionsFieldsBufferLengthName">Длина буфера</Phrase>
+    <Phrase key="DrvTesterCategoriesOptionsFieldsBinStopCodeName">Стоп-код</Phrase>
+    <Phrase key="DrvTesterCategoriesOptionsFieldsStopEndingName">Окончание строки</Phrase>
+    <Phrase key="DrvTesterActionsGetCommandsName">Получить команды</Phrase>
+    <Phrase key="DrvTesterActionsGetCommandsDescription">Возвращает штатные команды тестера каналов связи.</Phrase>
+  </Dictionary>
+</DriverDescriptorDictionaries>

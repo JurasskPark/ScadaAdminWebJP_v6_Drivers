@@ -1,0 +1,201 @@
+{
+  "driverCode": "DrvSnmp",
+  "driverName": "SNMP",
+  "version": "1.0.0",
+  "description": "Web editor descriptor for SNMP device configuration.",
+  "configFile": "DriverConfigs/DrvSnmp_001.xml",
+  "actionProvider": {
+    "assemblyFile": "$(AppDir)/Drivers/DrvSnmp/runtime/DrvSnmp.View.dll",
+    "entryPoint": "Scada.Comm.Drivers.DrvSnmp.View.AdminActionProvider"
+  },
+  "actions": [
+    {
+      "actionId": "GetTags",
+      "name": "Get tags",
+      "description": "Builds the channel list from the SNMP variable groups.",
+      "placement": "categoryToolbar",
+      "categoryId": "varGroups",
+      "input": {
+        "varGroups": "listValues.varGroups",
+        "varGroupVariables": "nestedGridValues.varGroups"
+      },
+      "result": {
+        "type": "table",
+        "target": "values.varGroups.tags"
+      },
+      "nameKey": "DrvSnmpActionsGetTagsName",
+      "descriptionKey": "DrvSnmpActionsGetTagsDescription"
+    }
+  ],
+  "categories": [
+    {
+      "id": "options",
+      "name": "Options",
+      "isSingleton": true,
+      "columns": 2,
+      "xmlPath": "/SnmpDeviceConfig/DeviceOptions",
+      "fields": [
+        {
+          "id": "readCommunity",
+          "name": "Read community",
+          "type": "password",
+          "encrypted": true,
+          "order": 10,
+          "xmlPath": "ReadCommunity",
+          "default": "public",
+          "nameKey": "DrvSnmpCategoriesOptionsFieldsReadCommunityName"
+        },
+        {
+          "id": "writeCommunity",
+          "name": "Write community",
+          "type": "password",
+          "encrypted": true,
+          "order": 20,
+          "xmlPath": "WriteCommunity",
+          "default": "private",
+          "nameKey": "DrvSnmpCategoriesOptionsFieldsWriteCommunityName"
+        },
+        {
+          "id": "snmpVersion",
+          "name": "SNMP version",
+          "type": "select",
+          "order": 30,
+          "xmlPath": "SnmpVersion",
+          "default": "2",
+          "options": [
+            {
+              "value": "1",
+              "label": "SNMP v1",
+              "labelKey": "DrvSnmpCategoriesOptionsFieldsSnmpVersionOptions1Label"
+            },
+            {
+              "value": "2",
+              "label": "SNMP v2c",
+              "labelKey": "DrvSnmpCategoriesOptionsFieldsSnmpVersionOptions2Label"
+            }
+          ],
+          "nameKey": "DrvSnmpCategoriesOptionsFieldsSnmpVersionName"
+        }
+      ],
+      "nameKey": "DrvSnmpCategoriesOptionsName"
+    },
+    {
+      "id": "varGroups",
+      "name": "Variable groups",
+      "isList": true,
+      "itemName": "Group",
+      "viewMode": "tree",
+      "columns": 2,
+      "xmlPath": "/SnmpDeviceConfig/VarGroups/VarGroup",
+      "fields": [
+        {
+          "id": "active",
+          "name": "Active",
+          "type": "boolean",
+          "order": 10,
+          "xmlPath": "@active",
+          "default": true,
+          "nameKey": "DrvSnmpCategoriesVarGroupsFieldsActiveName"
+        },
+        {
+          "id": "name",
+          "name": "Name",
+          "type": "string",
+          "required": true,
+          "order": 20,
+          "xmlPath": "@name",
+          "default": "Group",
+          "nameKey": "DrvSnmpCategoriesVarGroupsFieldsNameName"
+        },
+        {
+          "id": "variables",
+          "name": "Variables",
+          "type": "grid",
+          "order": 30,
+          "xmlPath": "Variable",
+          "itemName": "Variable",
+          "colSpan": 2,
+          "fields": [
+            {
+              "id": "name",
+              "name": "Name",
+              "type": "string",
+              "required": true,
+              "order": 10,
+              "xmlPath": "@name",
+              "default": "Variable",
+              "nameKey": "DrvSnmpCategoriesVarGroupsFieldsVariablesFieldsNameName"
+            },
+            {
+              "id": "tagCode",
+              "name": "Tag code",
+              "type": "string",
+              "required": true,
+              "order": 20,
+              "xmlPath": "@tagCode",
+              "default": "",
+              "nameKey": "DrvSnmpCategoriesVarGroupsFieldsVariablesFieldsTagCodeName"
+            },
+            {
+              "id": "oid",
+              "name": "OID",
+              "type": "string",
+              "required": true,
+              "order": 30,
+              "xmlPath": "@oid",
+              "default": "",
+              "nameKey": "DrvSnmpCategoriesVarGroupsFieldsVariablesFieldsOidName"
+            },
+            {
+              "id": "dataType",
+              "name": "Data type",
+              "type": "select",
+              "order": 40,
+              "xmlPath": "@dataType",
+              "default": "Double",
+              "options": [
+                {
+                  "value": "Double",
+                  "label": "Double",
+                  "labelKey": "DrvSnmpCategoriesVarGroupsFieldsVariablesFieldsDataTypeOptionsDoubleLabel"
+                },
+                {
+                  "value": "Int64",
+                  "label": "Int64",
+                  "labelKey": "DrvSnmpCategoriesVarGroupsFieldsVariablesFieldsDataTypeOptionsInt64Label"
+                },
+                {
+                  "value": "ASCII",
+                  "label": "ASCII",
+                  "labelKey": "DrvSnmpCategoriesVarGroupsFieldsVariablesFieldsDataTypeOptionsASCIILabel"
+                },
+                {
+                  "value": "Unicode",
+                  "label": "Unicode",
+                  "labelKey": "DrvSnmpCategoriesVarGroupsFieldsVariablesFieldsDataTypeOptionsUnicodeLabel"
+                }
+              ],
+              "nameKey": "DrvSnmpCategoriesVarGroupsFieldsVariablesFieldsDataTypeName"
+            },
+            {
+              "id": "dataLen",
+              "name": "Data length",
+              "type": "integer",
+              "min": 0,
+              "order": 50,
+              "xmlPath": "@dataLen",
+              "default": 0,
+              "nameKey": "DrvSnmpCategoriesVarGroupsFieldsVariablesFieldsDataLenName"
+            }
+          ],
+          "nameKey": "DrvSnmpCategoriesVarGroupsFieldsVariablesName",
+          "itemNameKey": "DrvSnmpCategoriesVarGroupsFieldsVariablesItemName"
+        }
+      ],
+      "nameKey": "DrvSnmpCategoriesVarGroupsName",
+      "itemNameKey": "DrvSnmpCategoriesVarGroupsItemName"
+    }
+  ],
+  "driverNameKey": "DrvSnmpDriverName",
+  "descriptionKey": "DrvSnmpDescription"
+}

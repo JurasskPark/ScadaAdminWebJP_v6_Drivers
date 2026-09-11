@@ -1,0 +1,260 @@
+{
+  "driverCode": "DrvDbImport",
+  "driverName": "DB Import",
+  "version": "1.0.0",
+  "description": "Example descriptor for database import device configuration.",
+  "configFile": "DriverConfigs/DrvDbImport_001.xml",
+  "actionProvider": {
+    "assemblyFile": "$(AppDir)/Drivers/DrvDbImport/runtime/DrvDbImport.View.dll",
+    "entryPoint": "Scada.Comm.Drivers.DrvDbImport.View.AdminActionProvider"
+  },
+  "actions": [
+    {
+      "actionId": "TestConnection",
+      "name": "Test connection",
+      "description": "Tests the database connection using the line settings.",
+      "placement": "categoryToolbar",
+      "categoryId": "connection",
+      "input": {
+        "dbms": "values.connection.dbms",
+        "server": "values.connection.server",
+        "database": "values.connection.database",
+        "username": "values.connection.username",
+        "password": "values.connection.password",
+        "connectionString": "values.connection.connectionString"
+      },
+      "result": {
+        "type": "message"
+      },
+      "nameKey": "DrvDbImportActionsTestConnectionName",
+      "descriptionKey": "DrvDbImportActionsTestConnectionDescription"
+    },
+    {
+      "actionId": "DBQuery",
+      "name": "Database query",
+      "description": "Executes the first active SQL query and returns a result preview.",
+      "placement": "categoryToolbar",
+      "categoryId": "queries",
+      "input": {
+        "dbms": "values.connection.dbms",
+        "server": "values.connection.server",
+        "database": "values.connection.database",
+        "username": "values.connection.username",
+        "password": "values.connection.password",
+        "connectionString": "values.connection.connectionString",
+        "queries": "listValues.queries"
+      },
+      "result": {
+        "type": "table",
+        "target": "values.queries.queryResult"
+      },
+      "nameKey": "DrvDbImportActionsDBQueryName",
+      "descriptionKey": "DrvDbImportActionsDBQueryDescription"
+    }
+  ],
+  "categories": [
+    {
+      "id": "connection",
+      "name": "Connection",
+      "configFile": "DriverConfigs/DrvDbImport_line001.xml",
+      "xmlPath": "/DbLineConfig/ConnectionOptions",
+      "fields": [
+        {
+          "id": "name",
+          "name": "Name",
+          "type": "string",
+          "order": 10,
+          "xmlPath": "Name",
+          "default": "",
+          "nameKey": "DrvDbImportCategoriesConnectionFieldsNameName"
+        },
+        {
+          "id": "dbms",
+          "name": "DBMS",
+          "type": "select",
+          "required": true,
+          "order": 20,
+          "xmlPath": "DBMS",
+          "default": "PostgreSQL",
+          "options": [
+            {
+              "value": "MSSQL",
+              "label": "MS SQL",
+              "labelKey": "DrvDbImportCategoriesConnectionFieldsDbmsOptionsMSSQLLabel"
+            },
+            {
+              "value": "MySQL",
+              "label": "MySQL",
+              "labelKey": "DrvDbImportCategoriesConnectionFieldsDbmsOptionsMySQLLabel"
+            },
+            {
+              "value": "Oracle",
+              "label": "Oracle",
+              "labelKey": "DrvDbImportCategoriesConnectionFieldsDbmsOptionsOracleLabel"
+            },
+            {
+              "value": "PostgreSQL",
+              "label": "PostgreSQL",
+              "labelKey": "DrvDbImportCategoriesConnectionFieldsDbmsOptionsPostgreSQLLabel"
+            }
+          ],
+          "nameKey": "DrvDbImportCategoriesConnectionFieldsDbmsName"
+        },
+        {
+          "id": "server",
+          "name": "Server",
+          "type": "string",
+          "required": true,
+          "order": 30,
+          "xmlPath": "Server",
+          "default": "localhost",
+          "nameKey": "DrvDbImportCategoriesConnectionFieldsServerName"
+        },
+        {
+          "id": "database",
+          "name": "Database",
+          "type": "string",
+          "required": true,
+          "order": 40,
+          "xmlPath": "Database",
+          "default": "rapid_scada",
+          "nameKey": "DrvDbImportCategoriesConnectionFieldsDatabaseName"
+        },
+        {
+          "id": "username",
+          "name": "User",
+          "type": "string",
+          "order": 50,
+          "xmlPath": "Username",
+          "default": "",
+          "nameKey": "DrvDbImportCategoriesConnectionFieldsUsernameName"
+        },
+        {
+          "id": "password",
+          "name": "Password",
+          "type": "password",
+          "order": 60,
+          "xmlPath": "Password",
+          "encrypted": true,
+          "default": "",
+          "nameKey": "DrvDbImportCategoriesConnectionFieldsPasswordName"
+        },
+        {
+          "id": "connectionString",
+          "name": "Connection string",
+          "type": "text",
+          "order": 70,
+          "xmlPath": "ConnectionString",
+          "encrypted": true,
+          "default": "",
+          "nameKey": "DrvDbImportCategoriesConnectionFieldsConnectionStringName"
+        }
+      ],
+      "nameKey": "DrvDbImportCategoriesConnectionName"
+    },
+    {
+      "id": "queries",
+      "name": "Queries",
+      "isList": true,
+      "itemName": "Query",
+      "xmlPath": "/DbDeviceConfig/Queries/Query",
+      "fields": [
+        {
+          "id": "active",
+          "name": "Active",
+          "type": "boolean",
+          "order": 10,
+          "xmlPath": "@active",
+          "default": true,
+          "nameKey": "DrvDbImportCategoriesQueriesFieldsActiveName"
+        },
+        {
+          "id": "name",
+          "name": "Name",
+          "type": "string",
+          "required": true,
+          "order": 20,
+          "xmlPath": "@name",
+          "default": "Query",
+          "nameKey": "DrvDbImportCategoriesQueriesFieldsNameName"
+        },
+        {
+          "id": "tagCodes",
+          "name": "Tags",
+          "type": "string",
+          "required": true,
+          "order": 30,
+          "xmlPath": "Tags/Tag",
+          "isXmlList": true,
+          "valueSeparator": ",",
+          "default": "tag1,tag2",
+          "nameKey": "DrvDbImportCategoriesQueriesFieldsTagCodesName"
+        },
+        {
+          "id": "singleRow",
+          "name": "Single line",
+          "type": "boolean",
+          "order": 40,
+          "xmlPath": "SingleRow",
+          "default": true,
+          "nameKey": "DrvDbImportCategoriesQueriesFieldsSingleRowName"
+        },
+        {
+          "id": "sql",
+          "name": "SQL",
+          "type": "text",
+          "required": true,
+          "order": 50,
+          "xmlPath": "Sql",
+          "default": "SELECT val1, val2 FROM drv_db_import.table1 LIMIT 1",
+          "nameKey": "DrvDbImportCategoriesQueriesFieldsSqlName"
+        }
+      ],
+      "nameKey": "DrvDbImportCategoriesQueriesName",
+      "itemNameKey": "DrvDbImportCategoriesQueriesItemName"
+    },
+    {
+      "id": "commands",
+      "name": "Commands",
+      "isList": true,
+      "itemName": "Command",
+      "xmlPath": "/DbDeviceConfig/Commands/Command",
+      "fields": [
+        {
+          "id": "name",
+          "name": "Name",
+          "type": "string",
+          "required": true,
+          "order": 10,
+          "xmlPath": "@name",
+          "default": "Command",
+          "nameKey": "DrvDbImportCategoriesCommandsFieldsNameName"
+        },
+        {
+          "id": "cmdCode",
+          "name": "Command code",
+          "type": "string",
+          "required": true,
+          "order": 20,
+          "xmlPath": "@cmdCode",
+          "default": "MyCmd",
+          "nameKey": "DrvDbImportCategoriesCommandsFieldsCmdCodeName"
+        },
+        {
+          "id": "sql",
+          "name": "SQL",
+          "type": "text",
+          "required": true,
+          "order": 30,
+          "xmlPath": "Sql",
+          "default": "INSERT INTO drv_db_import.table_out (cmd_val, cmd_data) VALUES (@cmdVal, @cmdData)",
+          "nameKey": "DrvDbImportCategoriesCommandsFieldsSqlName"
+        }
+      ],
+      "nameKey": "DrvDbImportCategoriesCommandsName",
+      "itemNameKey": "DrvDbImportCategoriesCommandsItemName"
+    }
+  ],
+  "driverNameKey": "DrvDbImportDriverName",
+  "descriptionKey": "DrvDbImportDescription"
+}

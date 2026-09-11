@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DriverDescriptorDictionaries>
+  <Dictionary key="DrvHttpNotif.AdminWeb">
+    <Phrase key="DrvHttpNotifDriverName">HTTP-уведомления</Phrase>
+    <Phrase key="DrvHttpNotifDescription">Настройка устройства HTTP-уведомлений.</Phrase>
+    <Phrase key="DrvHttpNotifCategoriesRequestName">HTTP запрос</Phrase>
+    <Phrase key="DrvHttpNotifCategoriesRequestFieldsUriName">URI</Phrase>
+    <Phrase key="DrvHttpNotifCategoriesRequestFieldsMethodName">Метод</Phrase>
+    <Phrase key="DrvHttpNotifCategoriesRequestFieldsMethodOptionsGetLabel">GET</Phrase>
+    <Phrase key="DrvHttpNotifCategoriesRequestFieldsMethodOptionsPostLabel">POST</Phrase>
+    <Phrase key="DrvHttpNotifCategoriesRequestFieldsContentTypeName">Тип содержимого</Phrase>
+    <Phrase key="DrvHttpNotifCategoriesRequestFieldsContentEscapingName">Кодирование параметров</Phrase>
+    <Phrase key="DrvHttpNotifCategoriesRequestFieldsContentEscapingOptionsNoneLabel">Нет</Phrase>
+    <Phrase key="DrvHttpNotifCategoriesRequestFieldsContentEscapingOptionsEncodeUrlLabel">Кодирование URL</Phrase>
+    <Phrase key="DrvHttpNotifCategoriesRequestFieldsContentEscapingOptionsEncodeJsonLabel">Кодирование JSON</Phrase>
+    <Phrase key="DrvHttpNotifCategoriesRequestFieldsContentName">Содержимое</Phrase>
+    <Phrase key="DrvHttpNotifCategoriesRequestFieldsHeadersName">Заголовки</Phrase>
+    <Phrase key="DrvHttpNotifCategoriesRequestFieldsHeadersItemName">Заголовок</Phrase>
+    <Phrase key="DrvHttpNotifCategoriesRequestFieldsHeadersFieldsNameName">Имя</Phrase>
+    <Phrase key="DrvHttpNotifCategoriesRequestFieldsHeadersFieldsValueName">Значение</Phrase>
+    <Phrase key="DrvHttpNotifCategoriesParametersName">Параметры</Phrase>
+    <Phrase key="DrvHttpNotifCategoriesParametersFieldsParamEnabledName">Разрешить параметры</Phrase>
+    <Phrase key="DrvHttpNotifCategoriesParametersFieldsAddrSepName">Разделитель адресов</Phrase>
+    <Phrase key="DrvHttpNotifCategoriesParametersFieldsParamBeginName">Начало параметра</Phrase>
+    <Phrase key="DrvHttpNotifCategoriesParametersFieldsParamEndName">Конец параметра</Phrase>
+    <Phrase key="DrvHttpNotifActionsGetTagsName">Показать теги</Phrase>
+    <Phrase key="DrvHttpNotifActionsGetTagsDescription">Показывает прототипы каналов, которые создает драйвер HTTP-уведомлений.</Phrase>
+  </Dictionary>
+</DriverDescriptorDictionaries>

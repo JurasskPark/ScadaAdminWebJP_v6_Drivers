@@ -1,0 +1,131 @@
+{
+  "driverCode": "DrvCsvReader",
+  "driverName": "CSV Reader",
+  "version": "1.0.0",
+  "description": "Web editor descriptor for CSV reader device custom options.",
+  "configSource": "deviceCustomOptions",
+  "actionProvider": {
+    "assemblyFile": "$(AppDir)/Drivers/DrvCsvReader/runtime/DrvCsvReader.View.dll",
+    "entryPoint": "Scada.Comm.Drivers.DrvCsvReader.View.AdminActionProvider"
+  },
+  "actions": [
+    {
+      "actionId": "GetTags",
+      "name": "Get tags",
+      "description": "Builds the CSV channel list from the tag count.",
+      "placement": "categoryToolbar",
+      "categoryId": "options",
+      "input": {
+        "tagCount": "values.options.tagCount"
+      },
+      "result": {
+        "type": "table",
+        "target": "values.options.tags"
+      },
+      "nameKey": "DrvCsvReaderActionsGetTagsName",
+      "descriptionKey": "DrvCsvReaderActionsGetTagsDescription"
+    }
+  ],
+  "categories": [
+    {
+      "id": "options",
+      "name": "Options",
+      "isSingleton": true,
+      "columns": 2,
+      "fields": [
+        {
+          "id": "tagCount",
+          "name": "Tag count",
+          "type": "integer",
+          "min": 0,
+          "order": 10,
+          "xmlPath": "TagCount",
+          "default": 1,
+          "nameKey": "DrvCsvReaderCategoriesOptionsFieldsTagCountName"
+        },
+        {
+          "id": "fileName",
+          "name": "CSV file",
+          "type": "string",
+          "order": 20,
+          "xmlPath": "FileName",
+          "default": "",
+          "colSpan": 2,
+          "nameKey": "DrvCsvReaderCategoriesOptionsFieldsFileNameName"
+        },
+        {
+          "id": "decimalSeparator",
+          "name": "Decimal separator",
+          "type": "string",
+          "order": 30,
+          "xmlPath": "DecimalSeparator",
+          "default": ".",
+          "nameKey": "DrvCsvReaderCategoriesOptionsFieldsDecimalSeparatorName"
+        },
+        {
+          "id": "fieldDelimiter",
+          "name": "Field separator",
+          "type": "string",
+          "order": 40,
+          "xmlPath": "FieldDelimiter",
+          "default": ",",
+          "nameKey": "DrvCsvReaderCategoriesOptionsFieldsFieldDelimiterName"
+        },
+        {
+          "id": "readMode",
+          "name": "Read mode",
+          "type": "select",
+          "order": 50,
+          "xmlPath": "ReadMode",
+          "default": "RealTime",
+          "options": [
+            {
+              "value": "RealTime",
+              "label": "RealTime",
+              "labelKey": "DrvCsvReaderCategoriesOptionsFieldsReadModeOptionsRealTimeLabel"
+            },
+            {
+              "value": "Demo",
+              "label": "Demo",
+              "labelKey": "DrvCsvReaderCategoriesOptionsFieldsReadModeOptionsDemoLabel"
+            }
+          ],
+          "nameKey": "DrvCsvReaderCategoriesOptionsFieldsReadModeName"
+        },
+        {
+          "id": "demoPeriod",
+          "name": "Demo period",
+          "type": "select",
+          "order": 60,
+          "xmlPath": "DemoPeriod",
+          "default": "OneHour",
+          "dependsOn": {
+            "fieldId": "readMode",
+            "value": "Demo"
+          },
+          "options": [
+            {
+              "value": "OneHour",
+              "label": "OneHour",
+              "labelKey": "DrvCsvReaderCategoriesOptionsFieldsDemoPeriodOptionsOneHourLabel"
+            },
+            {
+              "value": "OneDay",
+              "label": "OneDay",
+              "labelKey": "DrvCsvReaderCategoriesOptionsFieldsDemoPeriodOptionsOneDayLabel"
+            },
+            {
+              "value": "OneMonth",
+              "label": "OneMonth",
+              "labelKey": "DrvCsvReaderCategoriesOptionsFieldsDemoPeriodOptionsOneMonthLabel"
+            }
+          ],
+          "nameKey": "DrvCsvReaderCategoriesOptionsFieldsDemoPeriodName"
+        }
+      ],
+      "nameKey": "DrvCsvReaderCategoriesOptionsName"
+    }
+  ],
+  "driverNameKey": "DrvCsvReaderDriverName",
+  "descriptionKey": "DrvCsvReaderDescription"
+}

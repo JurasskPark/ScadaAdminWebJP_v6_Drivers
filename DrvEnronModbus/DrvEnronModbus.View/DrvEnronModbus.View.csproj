@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <FileVersion>6.5.0.0</FileVersion>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <Nullable>disable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>Scada.Comm.Drivers.DrvEnronModbus.View</RootNamespace>
+    <Authors>Mikhail Shiryaev</Authors>
+    <Company>Rapid Software LLC</Company>
+    <Product>Rapid SCADA</Product>
+    <Copyright>Copyright © 2025</Copyright>
+    <Version>6.5.0.0</Version>
+    <AssemblyVersion>6.5.0.0</AssemblyVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\DrvModbus\DrvModbus.View\DrvModbus.View.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="ScadaCommCommon">
+      <HintPath>..\..\..\System\ScadaComm\ScadaCommCommon\bin\$(Configuration)\net10.0\ScadaCommCommon.dll</HintPath>
+    </Reference>
+    <Reference Include="ScadaCommon">
+      <HintPath>..\..\..\System\ScadaCommon\ScadaCommon\bin\$(Configuration)\net10.0\ScadaCommon.dll</HintPath>
+    </Reference>
+    <Reference Include="ScadaCommon.Forms">
+      <HintPath>..\..\..\System\ScadaCommon\ScadaCommon.Forms\bin\$(Configuration)\net10.0-windows\ScadaCommon.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="ScadaCommon.Log">
+      <HintPath>..\..\..\System\ScadaCommon\ScadaCommon.Log\bin\$(Configuration)\net10.0\ScadaCommon.Log.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <Import Project="..\DrvEnronModbus.Shared\DrvEnronModbus.Shared.projitems" Label="Shared" />
+
+</Project>
+
+
+

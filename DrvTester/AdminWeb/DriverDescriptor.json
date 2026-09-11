@@ -1,0 +1,98 @@
+{
+  "driverCode": "DrvTester",
+  "driverName": "Tester",
+  "version": "1.0.0",
+  "description": "Web editor descriptor for tester device custom options.",
+  "configSource": "deviceCustomOptions",
+  "actionProvider": {
+    "assemblyFile": "$(AppDir)/Drivers/DrvTester/runtime/DrvTester.View.dll",
+    "entryPoint": "Scada.Comm.Drivers.DrvTester.View.AdminActionProvider"
+  },
+  "actions": [
+    {
+      "actionId": "GetCommands",
+      "name": "Get commands",
+      "description": "Returns the communication line tester's built-in commands.",
+      "placement": "categoryToolbar",
+      "categoryId": "options",
+      "result": {
+        "type": "table",
+        "target": "values.options.commands"
+      },
+      "nameKey": "DrvTesterActionsGetCommandsName",
+      "descriptionKey": "DrvTesterActionsGetCommandsDescription"
+    }
+  ],
+  "categories": [
+    {
+      "id": "options",
+      "name": "Options",
+      "isSingleton": true,
+      "columns": 2,
+      "fields": [
+        {
+          "id": "readMode",
+          "name": "Read mode",
+          "type": "select",
+          "order": 10,
+          "xmlPath": "ReadMode",
+          "default": "String",
+          "options": [
+            {
+              "value": "String",
+              "label": "String",
+              "labelKey": "DrvTesterCategoriesOptionsFieldsReadModeOptionsStringLabel"
+            },
+            {
+              "value": "Binary",
+              "label": "Binary",
+              "labelKey": "DrvTesterCategoriesOptionsFieldsReadModeOptionsBinaryLabel"
+            }
+          ],
+          "nameKey": "DrvTesterCategoriesOptionsFieldsReadModeName"
+        },
+        {
+          "id": "bufferLength",
+          "name": "Buffer length",
+          "type": "integer",
+          "min": 0,
+          "order": 20,
+          "xmlPath": "BufferLength",
+          "default": 100,
+          "nameKey": "DrvTesterCategoriesOptionsFieldsBufferLengthName"
+        },
+        {
+          "id": "binStopCode",
+          "name": "Stop code",
+          "type": "integer",
+          "min": 0,
+          "max": 255,
+          "order": 30,
+          "xmlPath": "BinStopCode",
+          "default": 0,
+          "dependsOn": {
+            "fieldId": "readMode",
+            "value": "Binary"
+          },
+          "nameKey": "DrvTesterCategoriesOptionsFieldsBinStopCodeName"
+        },
+        {
+          "id": "stopEnding",
+          "name": "Line ending",
+          "type": "string",
+          "order": 40,
+          "xmlPath": "StopEnding",
+          "default": "",
+          "dependsOn": {
+            "fieldId": "readMode",
+            "value": "String"
+          },
+          "nameKey": "DrvTesterCategoriesOptionsFieldsStopEndingName"
+        }
+      ],
+      "nameKey": "DrvTesterCategoriesOptionsName"
+    }
+  ],
+  "driverNameKey": "DrvTesterDriverName",
+  "descriptionKey": "DrvTesterDescription"
+}

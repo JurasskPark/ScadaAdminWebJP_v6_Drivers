@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 2,
+  "code": "DrvSnmp",
+  "name": "SNMP",
+  "roles": [
+    "device"
+  ],
+  "owner": "upstream",
+  "origin": "upstream",
+  "packageKind": "compiled",
+  "admin": {
+    "descriptor": "AdminWeb/DriverDescriptor.json",
+    "options": null
+  },
+  "runtime": {
+    "entryAssembly": "DrvSnmp.View.dll",
+    "dependencies": []
+  },
+  "build": {
+    "project": "Drivers/DrvSnmp/DrvSnmp.View/DrvSnmp.View.csproj",
+    "output": "Drivers/DrvSnmp/DrvSnmp.View/bin/{Configuration}/net10.0-windows",
+    "extraFiles": [],
+    "releasePackages": []
+  }
+}

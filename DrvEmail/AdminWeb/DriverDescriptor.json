@@ -1,0 +1,122 @@
+{
+  "driverCode": "DrvEmail",
+  "driverName": "Email",
+  "version": "0.1.0",
+  "description": "Descriptor for Email device SMTP configuration.",
+  "configFile": "DriverConfigs/DrvEmail_001.xml",
+  "actionProvider": {
+    "assemblyFile": "$(AppDir)/Drivers/DrvEmail/runtime/DrvEmail.View.dll",
+    "entryPoint": "Scada.Comm.Drivers.DrvEmail.View.AdminActionProvider"
+  },
+  "actions": [
+    {
+      "actionId": "GetTags",
+      "name": "Show tags",
+      "description": "Shows the channel prototypes created by the Email driver.",
+      "placement": "categoryToolbar",
+      "categoryId": "smtp",
+      "input": {},
+      "result": {
+        "type": "table",
+        "target": "values.smtp.generatedTags"
+      },
+      "nameKey": "DrvEmailActionsGetTagsName",
+      "descriptionKey": "DrvEmailActionsGetTagsDescription"
+    }
+  ],
+  "categories": [
+    {
+      "id": "smtp",
+      "name": "SMTP server",
+      "isSingleton": true,
+      "columns": 2,
+      "xmlPath": "/EmailDeviceConfig",
+      "fields": [
+        {
+          "id": "host",
+          "name": "Server",
+          "type": "string",
+          "required": true,
+          "order": 10,
+          "xmlPath": "Host",
+          "default": "smtp.gmail.com",
+          "nameKey": "DrvEmailCategoriesSmtpFieldsHostName"
+        },
+        {
+          "id": "port",
+          "name": "Port",
+          "type": "integer",
+          "required": true,
+          "order": 20,
+          "xmlPath": "Port",
+          "default": 587,
+          "min": 1,
+          "max": 65535,
+          "nameKey": "DrvEmailCategoriesSmtpFieldsPortName"
+        },
+        {
+          "id": "username",
+          "name": "User",
+          "type": "string",
+          "order": 30,
+          "xmlPath": "Username",
+          "default": "example@gmail.com",
+          "nameKey": "DrvEmailCategoriesSmtpFieldsUsernameName"
+        },
+        {
+          "id": "password",
+          "name": "Password",
+          "type": "password",
+          "order": 40,
+          "xmlPath": "Password",
+          "encrypted": true,
+          "default": "",
+          "nameKey": "DrvEmailCategoriesSmtpFieldsPasswordName"
+        },
+        {
+          "id": "enableSsl",
+          "name": "Use SSL",
+          "type": "boolean",
+          "order": 50,
+          "xmlPath": "EnableSsl",
+          "default": true,
+          "nameKey": "DrvEmailCategoriesSmtpFieldsEnableSslName"
+        }
+      ],
+      "nameKey": "DrvEmailCategoriesSmtpName"
+    },
+    {
+      "id": "sender",
+      "name": "Sender",
+      "isSingleton": true,
+      "columns": 2,
+      "xmlPath": "/EmailDeviceConfig",
+      "fields": [
+        {
+          "id": "senderAddress",
+          "name": "Sender address",
+          "type": "string",
+          "required": true,
+          "order": 10,
+          "xmlPath": "SenderAddress",
+          "default": "example@gmail.com",
+          "colSpan": 2,
+          "nameKey": "DrvEmailCategoriesSenderFieldsSenderAddressName"
+        },
+        {
+          "id": "senderDisplayName",
+          "name": "Display name",
+          "type": "string",
+          "order": 20,
+          "xmlPath": "SenderDisplayName",
+          "default": "Rapid SCADA",
+          "colSpan": 2,
+          "nameKey": "DrvEmailCategoriesSenderFieldsSenderDisplayNameName"
+        }
+      ],
+      "nameKey": "DrvEmailCategoriesSenderName"
+    }
+  ],
+  "driverNameKey": "DrvEmailDriverName",
+  "descriptionKey": "DrvEmailDescription"
+}

@@ -1,0 +1,38 @@
+{
+  "driverCode": "DrvSimulator",
+  "driverName": "Device Simulator",
+  "version": "1.0.0",
+  "description": "Web editor descriptor for simulator driver static channel prototypes.",
+  "configSource": "deviceCustomOptions",
+  "actionProvider": {
+    "assemblyFile": "$(AppDir)/Drivers/DrvSimulator/runtime/DrvSimulator.View.dll",
+    "entryPoint": "Scada.Comm.Drivers.DrvSimulator.View.AdminActionProvider"
+  },
+  "actions": [
+    {
+      "actionId": "GetTags",
+      "name": "Get tags",
+      "description": "Shows the device simulator channels.",
+      "placement": "categoryToolbar",
+      "categoryId": "channels",
+      "result": {
+        "type": "table",
+        "target": "values.channels.tags"
+      },
+      "nameKey": "DrvSimulatorActionsGetTagsName",
+      "descriptionKey": "DrvSimulatorActionsGetTagsDescription"
+    }
+  ],
+  "categories": [
+    {
+      "id": "channels",
+      "name": "Channels",
+      "isSingleton": true,
+      "columns": 2,
+      "fields": [],
+      "nameKey": "DrvSimulatorCategoriesChannelsName"
+    }
+  ],
+  "driverNameKey": "DrvSimulatorDriverName",
+  "descriptionKey": "DrvSimulatorDescription"
+}

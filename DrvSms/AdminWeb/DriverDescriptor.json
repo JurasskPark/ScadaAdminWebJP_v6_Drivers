@@ -1,0 +1,38 @@
+{
+  "driverCode": "DrvSms",
+  "driverName": "SMS",
+  "version": "1.0.0",
+  "description": "Web editor descriptor for SMS driver static channel prototypes.",
+  "configSource": "deviceCustomOptions",
+  "actionProvider": {
+    "assemblyFile": "$(AppDir)/Drivers/DrvSms/runtime/DrvSms.View.dll",
+    "entryPoint": "Scada.Comm.Drivers.DrvSms.View.AdminActionProvider"
+  },
+  "actions": [
+    {
+      "actionId": "GetTags",
+      "name": "Get tags",
+      "description": "Shows the SMS driver's static channels.",
+      "placement": "categoryToolbar",
+      "categoryId": "channels",
+      "result": {
+        "type": "table",
+        "target": "values.channels.tags"
+      },
+      "nameKey": "DrvSmsActionsGetTagsName",
+      "descriptionKey": "DrvSmsActionsGetTagsDescription"
+    }
+  ],
+  "categories": [
+    {
+      "id": "channels",
+      "name": "Channels",
+      "isSingleton": true,
+      "columns": 2,
+      "fields": [],
+      "nameKey": "DrvSmsCategoriesChannelsName"
+    }
+  ],
+  "driverNameKey": "DrvSmsDriverName",
+  "descriptionKey": "DrvSmsDescription"
+}

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DriverDescriptorDictionaries>
+  <Dictionary key="DrvOpcUa.AdminWeb">
+    <Phrase key="DrvOpcUaDriverName">OPC UA</Phrase>
+    <Phrase key="DrvOpcUaDescription">Настройка устройства OPC UA и действий веб-редактора.</Phrase>
+    <Phrase key="DrvOpcUaCategoriesConnectionName">Подключение</Phrase>
+    <Phrase key="DrvOpcUaCategoriesConnectionFieldsServerUrlName">URL сервера</Phrase>
+    <Phrase key="DrvOpcUaCategoriesConnectionFieldsSecurityModeName">Режим безопасности</Phrase>
+    <Phrase key="DrvOpcUaCategoriesConnectionFieldsSecurityModeOptionsNoneLabel">Нет</Phrase>
+    <Phrase key="DrvOpcUaCategoriesConnectionFieldsSecurityModeOptionsSignLabel">Подпись</Phrase>
+    <Phrase key="DrvOpcUaCategoriesConnectionFieldsSecurityModeOptionsSignAndEncryptLabel">Подпись и шифрование</Phrase>
+    <Phrase key="DrvOpcUaCategoriesConnectionFieldsSecurityPolicyName">Политика безопасности</Phrase>
+    <Phrase key="DrvOpcUaCategoriesConnectionFieldsSecurityPolicyOptionsNoneLabel">Нет</Phrase>
+    <Phrase key="DrvOpcUaCategoriesConnectionFieldsSecurityPolicyOptionsBasic256Sha256Label">Basic256Sha256</Phrase>
+    <Phrase key="DrvOpcUaCategoriesConnectionFieldsSecurityPolicyOptionsAes128_Sha256_RsaOaepLabel">Aes128-Sha256-RsaOaep</Phrase>
+    <Phrase key="DrvOpcUaCategoriesConnectionFieldsSecurityPolicyOptionsAes256_Sha256_RsaPssLabel">Aes256-Sha256-RsaPss</Phrase>
+    <Phrase key="DrvOpcUaCategoriesConnectionFieldsUsernameName">Пользователь</Phrase>
+    <Phrase key="DrvOpcUaCategoriesConnectionFieldsPasswordName">Пароль</Phrase>
+    <Phrase key="DrvOpcUaCategoriesConnectionFieldsAutoAcceptName">Автоматически принимать сертификат</Phrase>
+    <Phrase key="DrvOpcUaCategoriesBrowserName">Обзор сервера</Phrase>
+    <Phrase key="DrvOpcUaCategoriesBrowserFieldsNodeIdName">Идентификатор узла</Phrase>
+    <Phrase key="DrvOpcUaCategoriesSubscriptionsName">Подписки</Phrase>
+    <Phrase key="DrvOpcUaCategoriesSubscriptionsItemName">Подписка</Phrase>
+    <Phrase key="DrvOpcUaCategoriesSubscriptionsFieldsActiveName">Активна</Phrase>
+    <Phrase key="DrvOpcUaCategoriesSubscriptionsFieldsDisplayNameName">Название</Phrase>
+    <Phrase key="DrvOpcUaCategoriesSubscriptionsFieldsPublishingIntervalName">Интервал публикации, мс</Phrase>
+    <Phrase key="DrvOpcUaCategoriesSubscriptionsFieldsItemsName">Элементы</Phrase>
+    <Phrase key="DrvOpcUaCategoriesSubscriptionsFieldsItemsItemName">Элемент</Phrase>
+    <Phrase key="DrvOpcUaCategoriesSubscriptionsFieldsItemsFieldsActiveName">Активен</Phrase>
+    <Phrase key="DrvOpcUaCategoriesSubscriptionsFieldsItemsFieldsNodeIdName">Идентификатор узла</Phrase>
+    <Phrase key="DrvOpcUaCategoriesSubscriptionsFieldsItemsFieldsDisplayNameName">Название</Phrase>
+    <Phrase key="DrvOpcUaCategoriesSubscriptionsFieldsItemsFieldsTagCodeName">Код тега</Phrase>
+    <Phrase key="DrvOpcUaCategoriesSubscriptionsFieldsItemsFieldsDataTypeName">Тип данных</Phrase>
+    <Phrase key="DrvOpcUaCategoriesSubscriptionsFieldsItemsFieldsIsArrayName">Массив</Phrase>
+    <Phrase key="DrvOpcUaCategoriesSubscriptionsFieldsItemsFieldsDataLenName">Длина</Phrase>
+    <Phrase key="DrvOpcUaActionsTestConnectionName">Проверить подключение</Phrase>
+    <Phrase key="DrvOpcUaActionsTestConnectionDescription">Подключиться к OPC UA серверу с текущими параметрами.</Phrase>
+    <Phrase key="DrvOpcUaActionsBrowseTagsName">Обзор тегов</Phrase>
+    <Phrase key="DrvOpcUaActionsBrowseTagsDescription">Получить дерево узлов OPC UA сервера.</Phrase>
+    <Phrase key="DrvOpcUaActionsSetTagsName">Добавить в подписку</Phrase>
+    <Phrase key="DrvOpcUaActionsSetTagsDescription">Добавить выбранный OPC UA узел в первую подписку устройства.</Phrase>
+  </Dictionary>
+</DriverDescriptorDictionaries>

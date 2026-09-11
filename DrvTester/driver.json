@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 2,
+  "code": "DrvTester",
+  "name": "Tester",
+  "roles": [
+    "device"
+  ],
+  "owner": "upstream",
+  "origin": "upstream",
+  "packageKind": "compiled",
+  "admin": {
+    "descriptor": "AdminWeb/DriverDescriptor.json",
+    "options": null
+  },
+  "runtime": {
+    "entryAssembly": "DrvTester.View.dll",
+    "dependencies": []
+  },
+  "build": {
+    "project": "Drivers/DrvTester/DrvTester.View/DrvTester.View.csproj",
+    "output": "Drivers/DrvTester/DrvTester.View/bin/{Configuration}/net10.0-windows",
+    "extraFiles": [],
+    "releasePackages": []
+  }
+}

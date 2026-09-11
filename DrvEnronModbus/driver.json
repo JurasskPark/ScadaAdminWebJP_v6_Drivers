@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 2,
+  "code": "DrvEnronModbus",
+  "name": "Enron Modbus",
+  "roles": [
+    "device"
+  ],
+  "owner": "upstream",
+  "origin": "upstream",
+  "packageKind": "compiled",
+  "admin": {
+    "descriptor": "AdminWeb/DriverDescriptor.json",
+    "options": null
+  },
+  "runtime": {
+    "entryAssembly": null,
+    "dependencies": [
+      "DrvModbus"
+    ]
+  },
+  "build": {
+    "project": null,
+    "output": null,
+    "extraFiles": [],
+    "releasePackages": []
+  }
+}

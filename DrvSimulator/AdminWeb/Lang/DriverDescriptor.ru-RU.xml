@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DriverDescriptorDictionaries>
+  <Dictionary key="DrvSimulator.AdminWeb">
+    <Phrase key="DrvSimulatorDriverName">Симулятор устройства</Phrase>
+    <Phrase key="DrvSimulatorDescription">Статические прототипы каналов драйвера-симулятора.</Phrase>
+    <Phrase key="DrvSimulatorCategoriesChannelsName">Каналы</Phrase>
+    <Phrase key="DrvSimulatorActionsGetTagsName">Получить теги</Phrase>
+    <Phrase key="DrvSimulatorActionsGetTagsDescription">Показывает каналы симулятора устройства.</Phrase>
+  </Dictionary>
+</DriverDescriptorDictionaries>

@@ -1005,11 +1005,5 @@ Preview использует тот же descriptor, device file context и vali
 
 Для новых drivers/modules/tools/plugins нужно задавать явный runtime-путь или component assembly в manifest/descriptor. Fallback нужен только как временная совместимость во время разработки. Tools, modules и plugins не должны ссылаться на host assembly `ScadaAdminWebJP.dll` как на реализацию компонента.
 
-Для `DrvDbImportPlus` runtime provider в текущей рабочей схеме собирается из внешнего проекта `C:\Projects\SCADA\RAPIDSCADA_V6\DRIVERS\DrvDbImportPlus_v6`. Путь к готовому `DrvDbImportPlus.View` можно переопределить при сборке web-администратора:
-
-```powershell
-dotnet build ScadaAdminWebJP\ScadaAdminWebJP.csproj -p:DrvDbImportPlusViewDir="D:\Drivers\DrvDbImportPlus.View\bin\Release\net8.0-windows"
-```
-
 Descriptor всё равно должен ссылаться на runtime-копию внутри web-приложения: `$(AppDir)/Drivers/DrvDbImportPlus/DrvDbImportPlus.View.dll`.
 

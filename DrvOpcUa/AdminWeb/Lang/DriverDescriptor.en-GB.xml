@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DriverDescriptorDictionaries>
+  <Dictionary key="DrvOpcUa.AdminWeb">
+    <Phrase key="DrvOpcUaDriverName">OPC UA</Phrase>
+    <Phrase key="DrvOpcUaDescription">Prototype descriptor for OPC UA web actions.</Phrase>
+    <Phrase key="DrvOpcUaCategoriesConnectionName">Connection</Phrase>
+    <Phrase key="DrvOpcUaCategoriesConnectionFieldsServerUrlName">Server URL</Phrase>
+    <Phrase key="DrvOpcUaCategoriesConnectionFieldsSecurityModeName">Security mode</Phrase>
+    <Phrase key="DrvOpcUaCategoriesConnectionFieldsSecurityModeOptionsNoneLabel">None</Phrase>
+    <Phrase key="DrvOpcUaCategoriesConnectionFieldsSecurityModeOptionsSignLabel">Sign</Phrase>
+    <Phrase key="DrvOpcUaCategoriesConnectionFieldsSecurityModeOptionsSignAndEncryptLabel">SignAndEncrypt</Phrase>
+    <Phrase key="DrvOpcUaCategoriesConnectionFieldsSecurityPolicyName">Security policy</Phrase>
+    <Phrase key="DrvOpcUaCategoriesConnectionFieldsSecurityPolicyOptionsNoneLabel">None</Phrase>
+    <Phrase key="DrvOpcUaCategoriesConnectionFieldsSecurityPolicyOptionsBasic256Sha256Label">Basic256Sha256</Phrase>
+    <Phrase key="DrvOpcUaCategoriesConnectionFieldsSecurityPolicyOptionsAes128_Sha256_RsaOaepLabel">Aes128-Sha256-RsaOaep</Phrase>
+    <Phrase key="DrvOpcUaCategoriesConnectionFieldsSecurityPolicyOptionsAes256_Sha256_RsaPssLabel">Aes256-Sha256-RsaPss</Phrase>
+    <Phrase key="DrvOpcUaCategoriesConnectionFieldsUsernameName">User</Phrase>
+    <Phrase key="DrvOpcUaCategoriesConnectionFieldsPasswordName">Password</Phrase>
+    <Phrase key="DrvOpcUaCategoriesConnectionFieldsAutoAcceptName">Automatically accept certificate</Phrase>
+    <Phrase key="DrvOpcUaCategoriesBrowserName">Browse server</Phrase>
+    <Phrase key="DrvOpcUaCategoriesBrowserFieldsNodeIdName">Node ID</Phrase>
+    <Phrase key="DrvOpcUaCategoriesSubscriptionsName">Subscriptions</Phrase>
+    <Phrase key="DrvOpcUaCategoriesSubscriptionsItemName">Subscription</Phrase>
+    <Phrase key="DrvOpcUaCategoriesSubscriptionsFieldsActiveName">Active</Phrase>
+    <Phrase key="DrvOpcUaCategoriesSubscriptionsFieldsDisplayNameName">Name</Phrase>
+    <Phrase key="DrvOpcUaCategoriesSubscriptionsFieldsPublishingIntervalName">Publishing interval, ms</Phrase>
+    <Phrase key="DrvOpcUaCategoriesSubscriptionsFieldsItemsName">Items</Phrase>
+    <Phrase key="DrvOpcUaCategoriesSubscriptionsFieldsItemsItemName">Item</Phrase>
+    <Phrase key="DrvOpcUaCategoriesSubscriptionsFieldsItemsFieldsActiveName">Active</Phrase>
+    <Phrase key="DrvOpcUaCategoriesSubscriptionsFieldsItemsFieldsNodeIdName">Node ID</Phrase>
+    <Phrase key="DrvOpcUaCategoriesSubscriptionsFieldsItemsFieldsDisplayNameName">Name</Phrase>
+    <Phrase key="DrvOpcUaCategoriesSubscriptionsFieldsItemsFieldsTagCodeName">Tag code</Phrase>
+    <Phrase key="DrvOpcUaCategoriesSubscriptionsFieldsItemsFieldsDataTypeName">Data type</Phrase>
+    <Phrase key="DrvOpcUaCategoriesSubscriptionsFieldsItemsFieldsIsArrayName">Array</Phrase>
+    <Phrase key="DrvOpcUaCategoriesSubscriptionsFieldsItemsFieldsDataLenName">Length</Phrase>
+    <Phrase key="DrvOpcUaActionsTestConnectionName">Test connection</Phrase>
+    <Phrase key="DrvOpcUaActionsTestConnectionDescription">Connects to the OPC UA server using the current settings.</Phrase>
+    <Phrase key="DrvOpcUaActionsBrowseTagsName">Browse tags</Phrase>
+    <Phrase key="DrvOpcUaActionsBrowseTagsDescription">Retrieves the OPC UA server node tree.</Phrase>
+    <Phrase key="DrvOpcUaActionsSetTagsName">Add to subscription</Phrase>
+    <Phrase key="DrvOpcUaActionsSetTagsDescription">Adds the selected OPC UA node to the device's first subscription.</Phrase>
+  </Dictionary>
+</DriverDescriptorDictionaries>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DriverDescriptorDictionaries>
+  <Dictionary key="DrvEmail.AdminWeb">
+    <Phrase key="DrvEmailDriverName">Email</Phrase>
+    <Phrase key="DrvEmailDescription">Descriptor for Email device SMTP configuration.</Phrase>
+    <Phrase key="DrvEmailCategoriesSmtpName">SMTP server</Phrase>
+    <Phrase key="DrvEmailCategoriesSmtpFieldsHostName">Server</Phrase>
+    <Phrase key="DrvEmailCategoriesSmtpFieldsPortName">Port</Phrase>
+    <Phrase key="DrvEmailCategoriesSmtpFieldsUsernameName">User</Phrase>
+    <Phrase key="DrvEmailCategoriesSmtpFieldsPasswordName">Password</Phrase>
+    <Phrase key="DrvEmailCategoriesSmtpFieldsEnableSslName">Use SSL</Phrase>
+    <Phrase key="DrvEmailCategoriesSenderName">Sender</Phrase>
+    <Phrase key="DrvEmailCategoriesSenderFieldsSenderAddressName">Sender address</Phrase>
+    <Phrase key="DrvEmailCategoriesSenderFieldsSenderDisplayNameName">Display name</Phrase>
+    <Phrase key="DrvEmailActionsGetTagsName">Show tags</Phrase>
+    <Phrase key="DrvEmailActionsGetTagsDescription">Shows the channel prototypes created by the Email driver.</Phrase>
+  </Dictionary>
+</DriverDescriptorDictionaries>

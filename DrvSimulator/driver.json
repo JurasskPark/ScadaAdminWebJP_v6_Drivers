@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 2,
+  "code": "DrvSimulator",
+  "name": "Simulator",
+  "roles": [
+    "device"
+  ],
+  "owner": "upstream",
+  "origin": "upstream",
+  "packageKind": "compiled",
+  "admin": {
+    "descriptor": "AdminWeb/DriverDescriptor.json",
+    "options": null
+  },
+  "runtime": {
+    "entryAssembly": "DrvSimulator.View.dll",
+    "dependencies": []
+  },
+  "build": {
+    "project": "Drivers/DrvSimulator/DrvSimulator.View/DrvSimulator.View.csproj",
+    "output": "Drivers/DrvSimulator/DrvSimulator.View/bin/{Configuration}/net10.0",
+    "extraFiles": [],
+    "releasePackages": []
+  }
+}

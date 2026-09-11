@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DriverDescriptorDictionaries>
+  <Dictionary key="DrvDbImport.AdminWeb">
+    <Phrase key="DrvDbImportDriverName">Импорт из БД</Phrase>
+    <Phrase key="DrvDbImportDescription">Настройка устройства импорта из базы данных.</Phrase>
+    <Phrase key="DrvDbImportCategoriesConnectionName">Подключение</Phrase>
+    <Phrase key="DrvDbImportCategoriesConnectionFieldsNameName">Название</Phrase>
+    <Phrase key="DrvDbImportCategoriesConnectionFieldsDbmsName">СУБД</Phrase>
+    <Phrase key="DrvDbImportCategoriesConnectionFieldsDbmsOptionsMSSQLLabel">MS SQL</Phrase>
+    <Phrase key="DrvDbImportCategoriesConnectionFieldsDbmsOptionsMySQLLabel">MySQL</Phrase>
+    <Phrase key="DrvDbImportCategoriesConnectionFieldsDbmsOptionsOracleLabel">Oracle</Phrase>
+    <Phrase key="DrvDbImportCategoriesConnectionFieldsDbmsOptionsPostgreSQLLabel">PostgreSQL</Phrase>
+    <Phrase key="DrvDbImportCategoriesConnectionFieldsServerName">Сервер</Phrase>
+    <Phrase key="DrvDbImportCategoriesConnectionFieldsDatabaseName">База данных</Phrase>
+    <Phrase key="DrvDbImportCategoriesConnectionFieldsUsernameName">Пользователь</Phrase>
+    <Phrase key="DrvDbImportCategoriesConnectionFieldsPasswordName">Пароль</Phrase>
+    <Phrase key="DrvDbImportCategoriesConnectionFieldsConnectionStringName">Строка подключения</Phrase>
+    <Phrase key="DrvDbImportCategoriesQueriesName">Запросы</Phrase>
+    <Phrase key="DrvDbImportCategoriesQueriesItemName">Запрос</Phrase>
+    <Phrase key="DrvDbImportCategoriesQueriesFieldsActiveName">Активен</Phrase>
+    <Phrase key="DrvDbImportCategoriesQueriesFieldsNameName">Название</Phrase>
+    <Phrase key="DrvDbImportCategoriesQueriesFieldsTagCodesName">Теги</Phrase>
+    <Phrase key="DrvDbImportCategoriesQueriesFieldsSingleRowName">Одна строка</Phrase>
+    <Phrase key="DrvDbImportCategoriesQueriesFieldsSqlName">SQL</Phrase>
+    <Phrase key="DrvDbImportCategoriesCommandsName">Команды</Phrase>
+    <Phrase key="DrvDbImportCategoriesCommandsItemName">Команда</Phrase>
+    <Phrase key="DrvDbImportCategoriesCommandsFieldsNameName">Название</Phrase>
+    <Phrase key="DrvDbImportCategoriesCommandsFieldsCmdCodeName">Код команды</Phrase>
+    <Phrase key="DrvDbImportCategoriesCommandsFieldsSqlName">SQL</Phrase>
+    <Phrase key="DrvDbImportActionsTestConnectionName">Проверить подключение</Phrase>
+    <Phrase key="DrvDbImportActionsTestConnectionDescription">Проверяет подключение к базе данных по параметрам линии.</Phrase>
+    <Phrase key="DrvDbImportActionsDBQueryName">Запрос к БД</Phrase>
+    <Phrase key="DrvDbImportActionsDBQueryDescription">Выполняет первый активный SQL-запрос и возвращает предпросмотр результата.</Phrase>
+  </Dictionary>
+</DriverDescriptorDictionaries>
